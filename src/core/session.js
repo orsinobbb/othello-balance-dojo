@@ -12,13 +12,14 @@ function balancedEdge(edge) {
 }
 
 export class ExactTeachingSession {
-  constructor(dag, rootId, { random = Math.random } = {}) {
+  constructor(dag, rootId, { random = Math.random, control = 'single' } = {}) {
     this.dag = dag;
     this.rootId = rootId;
     this.nodeId = rootId;
     this.orientation = 0;
     this.turnColor = 0;
     this.studentColor = 0;
+    this.control = control;
     this.random = random;
     this.phase = 'playing';
     this.history = [];
@@ -31,7 +32,7 @@ export class ExactTeachingSession {
   get node() { return this.dag.node(this.nodeId); }
   get position() { return { player: this.node.player, opponent: this.node.opponent }; }
   get edges() { return this.dag.edgesForNode(this.nodeId); }
-  get isStudentTurn() { return this.turnColor === this.studentColor; }
+  get isStudentTurn() { return this.control === 'both' || this.turnColor === this.studentColor; }
   get empties() { return emptyCount(this.position); }
 
   displaySquare(canonicalSquare) {
@@ -66,7 +67,7 @@ export class ExactTeachingSession {
       this.phase = 'error';
       return { accepted: false, reason: 'inconsistent-data', edge };
     }
-    this.advance(edge, 'student');
+    this.advance(edge, this.control === 'both' ? 'user' : 'student');
     return { accepted: true, edge };
   }
 
@@ -101,6 +102,7 @@ export class ExactTeachingSession {
 
     this.history.push({
       actor,
+      color: this.turnColor,
       nodeId: this.nodeId,
       childId: edge.childId,
       move: edge.move,
@@ -141,6 +143,7 @@ export class ExactTeachingSession {
   snapshot() {
     return {
       version: 1,
+      control: this.control,
       rootId: this.rootId,
       nodeId: this.nodeId,
       phase: this.phase,
