@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f3d31">
+  <title>黑白棋平衡道場</title>
+  <link rel="stylesheet" href="./styles.css?v=2">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">EXACT E20 → TERMINAL</p>
+        <h1>黑白棋平衡道場</h1>
+        <p>沿著已精算的和局拓樸練習。每個平衡落點都算正解；失衡時留在原盤面理解錯誤。</p>
+      </div>
+      <div class="evidence" id="evidence">資料驗證中…</div>
+    </header>
+    <section class="workspace" aria-live="polite">
+      <div class="board-panel">
+        <div class="status-row"><span id="turn">載入中</span><span id="position-meta">—</span></div>
+        <div class="board-wrap">
+          <div class="coordinates" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
+          <div id="board" class="board" role="grid" aria-label="黑白棋盤"></div>
+        </div>
+      </div>
+      <aside class="coach-panel">
+        <div class="score-strip">
+          <div><b id="black-count">0</b><span>黑</span></div>
+          <div><b id="empty-count">20</b><span>空格</span></div>
+          <div><b id="white-count">0</b><span>白</span></div>
+        </div>
+        <section class="coach-card">
+          <p class="label">教練回饋</p>
+          <h2 id="feedback-title">準備棋局</h2>
+          <p id="feedback-text">正在驗證精算資料。</p>
+        </section>
+        <div class="actions">
+          <button id="hint" type="button">顯示平衡落點</button>
+          <button id="retry" class="primary" type="button" hidden>重試這一手</button>
+          <button id="next" class="primary" type="button" hidden>下一題</button>
+          <button id="replay" type="button" hidden>重播棋譜</button>
+        </div>
+        <section><p class="label">本題路徑</p><ol id="history" class="history"><li>尚未落子</li></ol></section>
+      </aside>
+    </section>
+    <p id="fatal" class="fatal" hidden></p>
+  </main>
+  <script type="module" src="./src/app.js?v=2"></script>
+</body>
+</html>

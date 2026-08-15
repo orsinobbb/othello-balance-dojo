@@ -1,0 +1,15 @@
+{
+  "name": "othello-balance-dojo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure-frontend exact Othello endgame teaching application",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test",
+    "audit:data": "node tools/audit-demo-data.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

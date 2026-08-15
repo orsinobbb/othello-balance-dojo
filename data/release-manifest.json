@@ -1,0 +1,33 @@
+{
+  "format": "OTHELLO_TEACHING_RELEASE_V1",
+  "datasetId": "e20-demo-shard-000001-b45b55a6cdc1",
+  "graphFormat": "OTBDAG01",
+  "evidence": "exact-e20-to-terminal",
+  "roots": 16,
+  "shards": [
+    {
+      "id": 1,
+      "url": "shards/shard-000001.otbdag",
+      "bytes": 986696,
+      "sha256": "b45b55a6cdc1e38f2e1585cf7a7496b259acb455b2487c4203b61b66ff1f376f",
+      "roots": [
+        "00000000b3c4e40220a07ffe4c3b1878",
+        "00000000cbf3f800001cff7f340c043c",
+        "00000002466b100038b8fcfcb894eac8",
+        "00000002530f1f000038fefcacf0a03c",
+        "000000027b6a100038b8fcfc8494ecc4",
+        "00000002bf271d193d3f3f3c40980000",
+        "00000002d6e8f0a07e3d7d7d29110000",
+        "00000003053d3d7c3e3c7cbc7a020000",
+        "000000040090f0207c3cfef8fc6c0c8c",
+        "0000000a5f3e3c3c1c2c7ff4a0c08000",
+        "0000000af74f03022030fff408303c1d",
+        "0000000e1f237f022030ff7060dc001d",
+        "0000000e2e1a0064101cfcf0d0e4fe98",
+        "000000151b1e2c48fc7cff6a64201000",
+        "000000174b572c7c043cff6834a81000",
+        "0000002602010000c0e0f8d8fdfcfc7e"
+      ]
+    }
+  ]
+}
