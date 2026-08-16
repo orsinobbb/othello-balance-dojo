@@ -9,7 +9,8 @@ import { ProgressStore } from './storage/progress-store.js';
 const elements = Object.fromEntries([
   'board', 'turn', 'position-meta', 'black-count', 'white-count', 'empty-count',
   'lesson-step', 'lesson-title', 'lesson-body', 'analysis-next', 'reveal', 'retry',
-  'next', 'replay', 'history', 'evidence', 'fatal', 'root-select', 'question-progress', 'last-result'
+  'next', 'replay', 'history', 'evidence', 'fatal', 'root-select', 'question-progress', 'last-result',
+  'failure-dialog', 'failure-dialog-title', 'failure-dialog-body', 'failure-dialog-close', 'failure-dialog-retry'
 ].map((id) => [id, document.getElementById(id)]));
 
 const repository = new ShardRepository();
@@ -53,6 +54,26 @@ function addList(parent, items, formatter) {
 
 function names(facts) {
   return facts.map((fact) => fact.name).join('、') || '沒有';
+}
+
+function closeFailureDialog() {
+  const dialog = elements['failure-dialog'];
+  if (dialog.open) dialog.close();
+}
+
+function showFailureDialog(analysis, failed) {
+  const dialog = elements['failure-dialog'];
+  elements['failure-dialog-title'].textContent = `${analysis.color}下 ${failed?.name || '這一手'}，會失去和局`;
+  const body = elements['failure-dialog-body'];
+  body.replaceChildren();
+  addParagraph(body, '完整搜尋已證明：雙方都無失誤時，這個分支會被對手強制獲勝。這不是立即輸棋，而是已經離開平衡路線。');
+  if (failed) {
+    addParagraph(body, `盤面線索：翻 ${failed.flips} 子、讓對手有 ${failed.opponentMobility} 個合法手，並進入 ${failed.regionSize} 格空區。這些是檢討線索，不是單獨的證明。`, 'dialog-clue');
+  }
+  addParagraph(body, `回到原盤後，重新比較 ${names(analysis.balanced)}。頁面下方也保留完整落點表。`, 'dialog-answer');
+  if (typeof dialog.showModal === 'function') dialog.showModal();
+  else dialog.setAttribute('open', '');
+  elements['failure-dialog-retry'].focus();
 }
 
 function renderExactTable(analysis, parent) {
@@ -244,6 +265,7 @@ function play(square) {
     lessonStage = 3;
     lastResult = `${movingColor} ${fact?.name || squareName(square)}：完整搜尋判定必敗，盤面保留供你比較。`;
     render();
+    showFailureDialog(before, fact);
     return;
   }
   if (!result.accepted) return;
@@ -257,6 +279,7 @@ function play(square) {
 }
 
 async function startRoot(index) {
+  closeFailureDialog();
   const requested = Math.max(0, Math.min(release.lessonCount - 1, Number(index) || 0));
   const selected = isLessonAvailable(curriculum, requested) ? requested : curriculum.unlockedThrough;
   const request = ++loadRequest;
@@ -303,12 +326,16 @@ elements['analysis-next'].addEventListener('click', () => {
   render();
 });
 elements.reveal.addEventListener('click', () => { lessonStage = 3; render(); });
-elements.retry.addEventListener('click', () => {
+function retryFailure() {
+  closeFailureDialog();
   session.retry();
   lessonStage = 0;
   lastResult = '盤面未改變。重新從空格區域開始判斷。';
   render();
-});
+}
+elements.retry.addEventListener('click', retryFailure);
+elements['failure-dialog-retry'].addEventListener('click', retryFailure);
+elements['failure-dialog-close'].addEventListener('click', closeFailureDialog);
 elements.next.addEventListener('click', () => startRoot(rootIndex + 1).catch(showFatal));
 elements.replay.addEventListener('click', () => replay().catch(showFatal));
 elements['root-select'].addEventListener('change', () => startRoot(Number(elements['root-select'].value)).catch(showFatal));

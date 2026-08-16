@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0f3d31">
   <title>黑白棋平衡道場｜逐手教學</title>
-  <link rel="stylesheet" href="./styles.css?v=5">
+  <link rel="stylesheet" href="./styles.css?v=6">
 </head>
 <body>
   <main class="shell">
@@ -68,6 +68,17 @@
     </section>
     <p id="fatal" class="fatal" hidden></p>
   </main>
-  <script type="module" src="./src/app.js?v=5"></script>
+
+  <dialog id="failure-dialog" class="failure-dialog" aria-labelledby="failure-dialog-title" aria-describedby="failure-dialog-body">
+    <button id="failure-dialog-close" class="dialog-close" type="button" aria-label="關閉失衡說明">×</button>
+    <p class="dialog-kicker">這一步需要再想想</p>
+    <h2 id="failure-dialog-title">這條路會失去和局</h2>
+    <div id="failure-dialog-body" class="dialog-body"></div>
+    <div class="dialog-actions">
+      <button id="failure-dialog-retry" class="primary" type="button">回到原盤重試</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="./src/app.js?v=6"></script>
 </body>
 </html>
