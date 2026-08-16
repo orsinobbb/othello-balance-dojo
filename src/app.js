@@ -3,7 +3,7 @@ import { ExactTeachingSession } from './core/session.js';
 import { inverseSymmetry, transformSquare } from './core/symmetry.js';
 import { analyzeTurn } from './core/teaching.js';
 import { ShardRepository } from './data/shard-repository.js';
-import { isLessonAvailable, loadCurriculum, recordLessonSuccess } from './storage/curriculum-store.js';
+import { isLessonAvailable, isLessonCompleted, loadCurriculum, recordLessonSuccess } from './storage/curriculum-store.js';
 import { ProgressStore } from './storage/progress-store.js';
 
 const elements = Object.fromEntries([
@@ -23,6 +23,7 @@ let rootIndex = Number(localStorage.getItem('balance-dojo-root') || 0);
 let lessonStage = 0;
 let lastSnapshot = null;
 let lastResult = '';
+let loadRequest = 0;
 
 function occupiedColor(displaySquare) {
   const canonicalSquare = transformSquare(displaySquare, inverseSymmetry(session.orientation));
@@ -206,7 +207,7 @@ function render() {
   elements['black-count'].textContent = popcount(black);
   elements['white-count'].textContent = popcount(white);
   elements['empty-count'].textContent = session.empties;
-  elements['position-meta'].textContent = `題目 ${String(rootIndex + 1).padStart(2, '0')}/${dag.rootCount} · node ${session.nodeId}`;
+  elements['position-meta'].textContent = `題目 ${String(rootIndex + 1).padStart(3, '0')}/${release.lessonCount} · node ${session.nodeId}`;
   elements.turn.textContent = session.phase === 'terminal'
     ? '精確和局完成'
     : `${session.turnColor === 0 ? '黑方' : '白方'}由你下 · ${session.legalDisplayMoves().length} 個合法手`;
@@ -214,7 +215,7 @@ function render() {
   elements['last-result'].hidden = !lastResult;
   elements['last-result'].textContent = lastResult;
   elements.retry.hidden = session.phase !== 'review';
-  elements.next.hidden = session.phase !== 'terminal' || rootIndex >= dag.rootCount - 1;
+  elements.next.hidden = session.phase !== 'terminal' || rootIndex >= release.lessonCount - 1;
   elements.replay.hidden = session.phase !== 'terminal';
   elements['analysis-next'].hidden = session.phase !== 'playing';
   elements.reveal.hidden = session.phase !== 'playing' || lessonStage === 3;
@@ -227,7 +228,7 @@ function render() {
 
 async function finish() {
   lastSnapshot = session.snapshot();
-  curriculum = recordLessonSuccess(localStorage, dag.rootCount, rootIndex, { moves: lastSnapshot.history.length });
+  curriculum = recordLessonSuccess(localStorage, release.lessons, rootIndex, { moves: lastSnapshot.history.length });
   populateRootSelect();
   lastResult = `終局確認：黑 ${elements['black-count'].textContent}、白 ${elements['white-count'].textContent}，結果和局。`;
   render();
@@ -255,15 +256,24 @@ function play(square) {
   render();
 }
 
-function startRoot(index) {
-  const requested = Math.max(0, Math.min(dag.rootCount - 1, Number(index) || 0));
-  rootIndex = isLessonAvailable(curriculum, requested) ? requested : curriculum.unlockedThrough;
+async function startRoot(index) {
+  const requested = Math.max(0, Math.min(release.lessonCount - 1, Number(index) || 0));
+  const selected = isLessonAvailable(curriculum, requested) ? requested : curriculum.unlockedThrough;
+  const request = ++loadRequest;
+  elements['root-select'].disabled = true;
+  elements.evidence.textContent = `正在載入第 ${String(selected + 1).padStart(3, '0')} 題所需分片…`;
+  const loaded = await repository.loadLesson(release, release.lessons[selected]);
+  if (request !== loadRequest) return;
+  ({ dag, shard } = loaded);
+  rootIndex = selected;
   localStorage.setItem('balance-dojo-root', String(rootIndex));
   elements['root-select'].value = String(rootIndex);
-  session = new ExactTeachingSession(dag, dag.root(rootIndex), { control: 'both' });
+  session = new ExactTeachingSession(dag, dag.root(release.lessons[rootIndex].rootIndex), { control: 'both' });
   lastSnapshot = null;
   lastResult = '';
   lessonStage = 0;
+  elements.evidence.textContent = `✓ SHA-256 已驗證 · ${release.lessonCount} 題 · 已載入 ${repository.loadedShardCount(release)}/${release.shards.length} 分片（${(repository.loadedBytes(release) / 1048576).toFixed(1)} MB）`;
+  populateRootSelect();
   render();
 }
 
@@ -299,45 +309,43 @@ elements.retry.addEventListener('click', () => {
   lastResult = '盤面未改變。重新從空格區域開始判斷。';
   render();
 });
-elements.next.addEventListener('click', () => startRoot(rootIndex + 1));
+elements.next.addEventListener('click', () => startRoot(rootIndex + 1).catch(showFatal));
 elements.replay.addEventListener('click', () => replay().catch(showFatal));
-elements['root-select'].addEventListener('change', () => startRoot(Number(elements['root-select'].value)));
+elements['root-select'].addEventListener('change', () => startRoot(Number(elements['root-select'].value)).catch(showFatal));
 
 function showFatal(error) {
   console.error(error);
+  elements['root-select'].disabled = false;
   elements.fatal.hidden = false;
   elements.fatal.textContent = `無法啟動練習：${error.message}`;
 }
 
 function populateRootSelect() {
   elements['root-select'].replaceChildren();
-  for (let index = 0; index < dag.rootCount; index += 1) {
+  for (let index = 0; index < release.lessonCount; index += 1) {
     const option = document.createElement('option');
     option.value = String(index);
-    const title = index === 0 ? ' · C1 搶手數' : '';
-    const status = curriculum.completed[index]
+    const title = release.lessons[index].title ? ` · ${release.lessons[index].title}` : '';
+    const status = isLessonCompleted(curriculum, index)
       ? ' · ✓ 已完成'
       : index === curriculum.unlockedThrough ? ' · 目前關卡' : ' · 🔒 未解鎖';
-    option.textContent = `第 ${String(index + 1).padStart(2, '0')} 題${title}${status}`;
+    option.textContent = `第 ${String(index + 1).padStart(3, '0')} 題${title}${status}`;
     option.disabled = !isLessonAvailable(curriculum, index);
     elements['root-select'].append(option);
   }
   elements['root-select'].value = String(rootIndex);
   elements['root-select'].disabled = false;
-  elements['question-progress'].textContent = curriculum.completedCount === dag.rootCount
-    ? `全部 ${dag.rootCount} 題完成，可自由複習`
-    : `已完成 ${curriculum.completedCount}/${dag.rootCount} · 下一關：第 ${String(curriculum.unlockedThrough + 1).padStart(2, '0')} 題`;
+  elements['question-progress'].textContent = curriculum.completedCount === release.lessonCount
+    ? `全部 ${release.lessonCount} 題完成，可自由複習`
+    : `已完成 ${curriculum.completedCount}/${release.lessonCount} · 下一關：第 ${String(curriculum.unlockedThrough + 1).padStart(3, '0')} 題`;
 }
 
 async function main() {
   release = await repository.loadRelease('./data/release-manifest.json');
-  shard = release.shards[0];
-  ({ dag } = await repository.loadShard(release, shard));
-  curriculum = loadCurriculum(localStorage, dag.rootCount);
+  curriculum = loadCurriculum(localStorage, release.lessons);
   if (!isLessonAvailable(curriculum, rootIndex)) rootIndex = curriculum.unlockedThrough;
-  elements.evidence.textContent = `✓ SHA-256 已驗證 · ${dag.rootCount} 題 · ${(dag.byteLength / 1024).toFixed(0)} KiB`;
   populateRootSelect();
-  startRoot(Number.isFinite(rootIndex) ? rootIndex : 0);
+  await startRoot(Number.isFinite(rootIndex) ? rootIndex : 0);
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(console.warn);
 }
 

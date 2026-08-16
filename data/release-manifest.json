@@ -1,9 +1,1013 @@
 {
   "format": "OTHELLO_TEACHING_RELEASE_V1",
-  "datasetId": "e20-demo-shard-000001-b45b55a6cdc1",
+  "datasetId": "e20-lessons-100-c06c50b5f280",
   "graphFormat": "OTBDAG01",
   "evidence": "exact-e20-to-terminal",
-  "roots": 16,
+  "lessonCount": 100,
+  "generatedAt": "2026-08-16T14:16:55.766Z",
+  "lessons": [
+    {
+      "id": "e20-00000000b3c4e40220a07ffe4c3b1878",
+      "number": 1,
+      "shardId": 1,
+      "rootIndex": 0,
+      "root": "00000000b3c4e40220a07ffe4c3b1878",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "C1 搶手數"
+    },
+    {
+      "id": "e20-00000000cbf3f800001cff7f340c043c",
+      "number": 2,
+      "shardId": 1,
+      "rootIndex": 1,
+      "root": "00000000cbf3f800001cff7f340c043c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000002466b100038b8fcfcb894eac8",
+      "number": 3,
+      "shardId": 1,
+      "rootIndex": 2,
+      "root": "00000002466b100038b8fcfcb894eac8",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000002530f1f000038fefcacf0a03c",
+      "number": 4,
+      "shardId": 1,
+      "rootIndex": 3,
+      "root": "00000002530f1f000038fefcacf0a03c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000000027b6a100038b8fcfc8494ecc4",
+      "number": 5,
+      "shardId": 1,
+      "rootIndex": 4,
+      "root": "000000027b6a100038b8fcfc8494ecc4",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000002bf271d193d3f3f3c40980000",
+      "number": 6,
+      "shardId": 1,
+      "rootIndex": 5,
+      "root": "00000002bf271d193d3f3f3c40980000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000002d6e8f0a07e3d7d7d29110000",
+      "number": 7,
+      "shardId": 1,
+      "rootIndex": 6,
+      "root": "00000002d6e8f0a07e3d7d7d29110000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000003053d3d7c3e3c7cbc7a020000",
+      "number": 8,
+      "shardId": 1,
+      "rootIndex": 7,
+      "root": "00000003053d3d7c3e3c7cbc7a020000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000000040090f0207c3cfef8fc6c0c8c",
+      "number": 9,
+      "shardId": 1,
+      "rootIndex": 8,
+      "root": "000000040090f0207c3cfef8fc6c0c8c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000000a5f3e3c3c1c2c7ff4a0c08000",
+      "number": 10,
+      "shardId": 1,
+      "rootIndex": 9,
+      "root": "0000000a5f3e3c3c1c2c7ff4a0c08000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000000af74f03022030fff408303c1d",
+      "number": 11,
+      "shardId": 1,
+      "rootIndex": 10,
+      "root": "0000000af74f03022030fff408303c1d",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000000e1f237f022030ff7060dc001d",
+      "number": 12,
+      "shardId": 1,
+      "rootIndex": 11,
+      "root": "0000000e1f237f022030ff7060dc001d",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000000e2e1a0064101cfcf0d0e4fe98",
+      "number": 13,
+      "shardId": 1,
+      "rootIndex": 12,
+      "root": "0000000e2e1a0064101cfcf0d0e4fe98",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000000151b1e2c48fc7cff6a64201000",
+      "number": 14,
+      "shardId": 1,
+      "rootIndex": 13,
+      "root": "000000151b1e2c48fc7cff6a64201000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000000174b572c7c043cff6834a81000",
+      "number": 15,
+      "shardId": 1,
+      "rootIndex": 14,
+      "root": "000000174b572c7c043cff6834a81000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000002602010000c0e0f8d8fdfcfc7e",
+      "number": 16,
+      "shardId": 1,
+      "rootIndex": 15,
+      "root": "0000002602010000c0e0f8d8fdfcfc7e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000003e23271d193d3f7f409c180000",
+      "number": 17,
+      "shardId": 2,
+      "rootIndex": 0,
+      "root": "0000003e23271d193d3f7f409c180000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000003e5ade30000038ff0125210dfd",
+      "number": 18,
+      "shardId": 2,
+      "rootIndex": 1,
+      "root": "0000003e5ade30000038ff0125210dfd",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000003f5367343c003cffc0ac980800",
+      "number": 19,
+      "shardId": 2,
+      "rootIndex": 2,
+      "root": "0000003f5367343c003cffc0ac980800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000005a4a60607e00a0ffa5b59d1c00",
+      "number": 20,
+      "shardId": 2,
+      "rootIndex": 3,
+      "root": "0000005a4a60607e00a0ffa5b59d1c00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000005d337f00003e3c7f220c00383e",
+      "number": 21,
+      "shardId": 2,
+      "rootIndex": 4,
+      "root": "0000005d337f00003e3c7f220c00383e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000005e03071d193d3f7f203c382000",
+      "number": 22,
+      "shardId": 2,
+      "rootIndex": 5,
+      "root": "0000005e03071d193d3f7f203c382000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000005e3e1e1c0e048cffa1c1e0a020",
+      "number": 23,
+      "shardId": 2,
+      "rootIndex": 6,
+      "root": "0000005e3e1e1c0e048cffa1c1e0a020",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000005f6f363c7f20b8fea090080000",
+      "number": 24,
+      "shardId": 2,
+      "rootIndex": 7,
+      "root": "0000005f6f363c7f20b8fea090080000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000007b46661a05043cfe84b898a4c0",
+      "number": 25,
+      "shardId": 2,
+      "rootIndex": 8,
+      "root": "0000007b46661a05043cfe84b898a4c0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000100404f080038b8fcffbfb0e0c0",
+      "number": 26,
+      "shardId": 2,
+      "rootIndex": 9,
+      "root": "00000100404f080038b8fcffbfb0e0c0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001013d7d34203e3cfefec0800800",
+      "number": 27,
+      "shardId": 2,
+      "rootIndex": 10,
+      "root": "000001013d7d34203e3cfefec0800800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000010206463078383cfefcf8380c02",
+      "number": 28,
+      "shardId": 2,
+      "rootIndex": 11,
+      "root": "0000010206463078383cfefcf8380c02",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000010236566c0400f87cfcc8a890f8",
+      "number": 29,
+      "shardId": 2,
+      "rootIndex": 12,
+      "root": "0000010236566c0400f87cfcc8a890f8",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000010333027404048c7cfcccfc88f0",
+      "number": 30,
+      "shardId": 2,
+      "rootIndex": 13,
+      "root": "0000010333027404048c7cfcccfc88f0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001033f5e0c04048c7cfcc0a1b0f0",
+      "number": 31,
+      "shardId": 2,
+      "rootIndex": 14,
+      "root": "000001033f5e0c04048c7cfcc0a1b0f0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000140747a342410b8febf8a840a18",
+      "number": 32,
+      "shardId": 2,
+      "rootIndex": 15,
+      "root": "00000140747a342410b8febf8a840a18",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001432d19030100047e3c1266fcfe",
+      "number": 33,
+      "shardId": 3,
+      "rootIndex": 0,
+      "root": "000001432d19030100047e3c1266fcfe",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000181416b14083e3cbe7e3e142804",
+      "number": 34,
+      "shardId": 3,
+      "rootIndex": 1,
+      "root": "00000181416b14083e3cbe7e3e142804",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001c111231c0c3e3c3e3e6edc2000",
+      "number": 35,
+      "shardId": 3,
+      "rootIndex": 2,
+      "root": "000001c111231c0c3e3c3e3e6edc2000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001c1617330203e3c3e3e1e0c0c0c",
+      "number": 36,
+      "shardId": 3,
+      "rootIndex": 3,
+      "root": "000001c1617330203e3c3e3e1e0c0c0c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001e1613704243e3c3e1e1e481818",
+      "number": 37,
+      "shardId": 3,
+      "rootIndex": 4,
+      "root": "000001e1613704243e3c3e1e1e481818",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000001e171311c1c3e3c3e1e0e4e0200",
+      "number": 38,
+      "shardId": 3,
+      "rootIndex": 5,
+      "root": "000001e171311c1c3e3c3e1e0e4e0200",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002004458784038b8fcfebba68480",
+      "number": 39,
+      "shardId": 3,
+      "rootIndex": 6,
+      "root": "000002004458784038b8fcfebba68480",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002004458784038b8fcffbaa68480",
+      "number": 40,
+      "shardId": 3,
+      "rootIndex": 7,
+      "root": "000002004458784038b8fcffbaa68480",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002012874383e3038fcfed7890400",
+      "number": 41,
+      "shardId": 3,
+      "rootIndex": 8,
+      "root": "000002012874383e3038fcfed7890400",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000201b7d72e310c3c7cfc48281008",
+      "number": 42,
+      "shardId": 3,
+      "rootIndex": 9,
+      "root": "00000201b7d72e310c3c7cfc48281008",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020313640c100f3efdfcec9b0000",
+      "number": 43,
+      "shardId": 3,
+      "rootIndex": 10,
+      "root": "0000020313640c100f3efdfcec9b0000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020602327c940004fdb9fdcd8301",
+      "number": 44,
+      "shardId": 3,
+      "rootIndex": 11,
+      "root": "0000020602327c940004fdb9fdcd8301",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002064e0f000038b8fcf8b0f0f894",
+      "number": 45,
+      "shardId": 3,
+      "rootIndex": 12,
+      "root": "000002064e0f000038b8fcf8b0f0f894",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002076e041c0c9c9cbcf890f86030",
+      "number": 46,
+      "shardId": 3,
+      "rootIndex": 13,
+      "root": "000002076e041c0c9c9cbcf890f86030",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000207df2a70781c3c7c7820140e04",
+      "number": 47,
+      "shardId": 3,
+      "rootIndex": 14,
+      "root": "00000207df2a70781c3c7c7820140e04",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020818104000f83cbcf6e6eeb438",
+      "number": 48,
+      "shardId": 3,
+      "rootIndex": 15,
+      "root": "0000020818104000f83cbcf6e6eeb438",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000209723a06023d3e7c760d051911",
+      "number": 49,
+      "shardId": 4,
+      "rootIndex": 0,
+      "root": "00000209723a06023d3e7c760d051911",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020a572600e080e4fcf4a8d8fc04",
+      "number": 50,
+      "shardId": 4,
+      "rootIndex": 1,
+      "root": "0000020a572600e080e4fcf4a8d8fc04",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020bf35b3910103c7cf40c240625",
+      "number": 51,
+      "shardId": 4,
+      "rootIndex": 2,
+      "root": "0000020bf35b3910103c7cf40c240625",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020d00346c40202cfcf2ffca90b0",
+      "number": 52,
+      "shardId": 4,
+      "rootIndex": 3,
+      "root": "0000020d00346c40202cfcf2ffca90b0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000020f0b022e26323c3c7074fc1019",
+      "number": 53,
+      "shardId": 4,
+      "rootIndex": 4,
+      "root": "0000020f0b022e26323c3c7074fc1019",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002173f533c3c123c7ce8c0ac0000",
+      "number": 54,
+      "shardId": 4,
+      "rootIndex": 5,
+      "root": "000002173f533c3c123c7ce8c0ac0000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000021a2e1e400038387ce4d0e0bcf4",
+      "number": 55,
+      "shardId": 4,
+      "rootIndex": 6,
+      "root": "0000021a2e1e400038387ce4d0e0bcf4",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000022d2070383e3038fcd0df8d0600",
+      "number": 56,
+      "shardId": 4,
+      "rootIndex": 7,
+      "root": "0000022d2070383e3038fcd0df8d0600",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000023e023d3c1e1c34fcc0fcc28000",
+      "number": 57,
+      "shardId": 4,
+      "rootIndex": 8,
+      "root": "0000023e023d3c1e1c34fcc0fcc28000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000246060c3c143d1f3d3979730100",
+      "number": 58,
+      "shardId": 4,
+      "rootIndex": 9,
+      "root": "00000246060c3c143d1f3d3979730100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002472b7f20207c3c7c3854801c18",
+      "number": 59,
+      "shardId": 4,
+      "rootIndex": 10,
+      "root": "000002472b7f20207c3c7c3854801c18",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000027f5050e000042c7c80acaf1cfc",
+      "number": 60,
+      "shardId": 4,
+      "rootIndex": 11,
+      "root": "0000027f5050e000042c7c80acaf1cfc",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002bf0d3539290c1c3c40f24a0606",
+      "number": 61,
+      "shardId": 4,
+      "rootIndex": 12,
+      "root": "000002bf0d3539290c1c3c40f24a0606",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002c29b9b8c3c04bc7c3c64643000",
+      "number": 62,
+      "shardId": 4,
+      "rootIndex": 13,
+      "root": "000002c29b9b8c3c04bc7c3c64643000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000002f6f3f03c7c203c7c080c0e0300",
+      "number": 63,
+      "shardId": 4,
+      "rootIndex": 14,
+      "root": "000002f6f3f03c7c203c7c080c0e0300",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003004c5c2c0038b8fcffb3a2c080",
+      "number": 64,
+      "shardId": 4,
+      "rootIndex": 15,
+      "root": "000003004c5c2c0038b8fcffb3a2c080",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003010143a47018b8fcfefe381800",
+      "number": 65,
+      "shardId": 5,
+      "rootIndex": 0,
+      "root": "000003010143a47018b8fcfefe381800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000301cdf3b9381038bc7e320c0402",
+      "number": 66,
+      "shardId": 5,
+      "rootIndex": 1,
+      "root": "00000301cdf3b9381038bc7e320c0402",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003025e1e1c1824b4fcfca1e0a020",
+      "number": 67,
+      "shardId": 5,
+      "rootIndex": 2,
+      "root": "000003025e1e1c1824b4fcfca1e0a020",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003030f5a203e0080fcfcf0a59e00",
+      "number": 68,
+      "shardId": 5,
+      "rootIndex": 3,
+      "root": "000003030f5a203e0080fcfcf0a59e00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003031f0e2c7c243cfc7c60f01000",
+      "number": 69,
+      "shardId": 5,
+      "rootIndex": 4,
+      "root": "000003031f0e2c7c243cfc7c60f01000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000304d8f8f0a07e3c7c7a27030000",
+      "number": 70,
+      "shardId": 5,
+      "rootIndex": 5,
+      "root": "00000304d8f8f0a07e3c7c7a27030000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000306c6edb0780020fc7939120e06",
+      "number": 71,
+      "shardId": 5,
+      "rootIndex": 6,
+      "root": "00000306c6edb0780020fc7939120e06",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000030717327c7c2018fcf8a8cc0200",
+      "number": 72,
+      "shardId": 5,
+      "rootIndex": 7,
+      "root": "0000030717327c7c2018fcf8a8cc0200",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003095f660c047d3e3c7620183028",
+      "number": 73,
+      "shardId": 5,
+      "rootIndex": 8,
+      "root": "000003095f660c047d3e3c7620183028",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000030a0a132d7c181cbcf4f4ec1000",
+      "number": 74,
+      "shardId": 5,
+      "rootIndex": 9,
+      "root": "0000030a0a132d7c181cbcf4f4ec1000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000030b0b733828109cfcf4f40c0602",
+      "number": 75,
+      "shardId": 5,
+      "rootIndex": 10,
+      "root": "0000030b0b733828109cfcf4f40c0602",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000032a5f787030089cfcd4a0868c08",
+      "number": 76,
+      "shardId": 5,
+      "rootIndex": 11,
+      "root": "0000032a5f787030089cfcd4a0868c08",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000033f461f1e01003cfcc0b9e0a020",
+      "number": 77,
+      "shardId": 5,
+      "rootIndex": 12,
+      "root": "0000033f461f1e01003cfcc0b9e0a020",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003685c48f870042c7c96a3b60484",
+      "number": 78,
+      "shardId": 5,
+      "rootIndex": 13,
+      "root": "000003685c48f870042c7c96a3b60484",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003be071f03003c3cfc4078601c0c",
+      "number": 79,
+      "shardId": 5,
+      "rootIndex": 14,
+      "root": "000003be071f03003c3cfc4078601c0c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003bf121b1c183e3c3c40ad640204",
+      "number": 80,
+      "shardId": 5,
+      "rootIndex": 15,
+      "root": "000003bf121b1c183e3c3c40ad640204",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000003d9c57741000014fc263a083c3e",
+      "number": 81,
+      "shardId": 6,
+      "rootIndex": 0,
+      "root": "000003d9c57741000014fc263a083c3e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004001bd63c70783cfb7f64280000",
+      "number": 82,
+      "shardId": 6,
+      "rootIndex": 1,
+      "root": "000004001bd63c70783cfb7f64280000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004007ae838081e3c79ff05170504",
+      "number": 83,
+      "shardId": 6,
+      "rootIndex": 2,
+      "root": "000004007ae838081e3c79ff05170504",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004009a623070783cfaff641c0c04",
+      "number": 84,
+      "shardId": 6,
+      "rootIndex": 3,
+      "root": "000004009a623070783cfaff641c0c04",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000402cf2260403c3c9b7d301c1c1e",
+      "number": 85,
+      "shardId": 6,
+      "rootIndex": 4,
+      "root": "00000402cf2260403c3c9b7d301c1c1e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000040402c60e001e3c793b3d39313c",
+      "number": 86,
+      "shardId": 6,
+      "rootIndex": 5,
+      "root": "0000040402c60e001e3c793b3d39313c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004040c0c0e7e0004197bf3f3f181",
+      "number": 87,
+      "shardId": 6,
+      "rootIndex": 6,
+      "root": "000004040c0c0e7e0004197bf3f3f181",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000407172378280898faf8e8dc0602",
+      "number": 88,
+      "shardId": 6,
+      "rootIndex": 7,
+      "root": "00000407172378280898faf8e8dc0602",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000040ae40e3c3e001d3bf51b714100",
+      "number": 89,
+      "shardId": 6,
+      "rootIndex": 8,
+      "root": "0000040ae40e3c3e001d3bf51b714100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000426575c2c7e043cf8d8a8a31000",
+      "number": 90,
+      "shardId": 6,
+      "rootIndex": 9,
+      "root": "00000426575c2c7e043cf8d8a8a31000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000042a7c7a3c3c009dbbd583850000",
+      "number": 91,
+      "shardId": 6,
+      "rootIndex": 10,
+      "root": "0000042a7c7a3c3c009dbbd583850000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000440685e10003efcfbbe96a0c080",
+      "number": 92,
+      "shardId": 6,
+      "rootIndex": 11,
+      "root": "00000440685e10003efcfbbe96a0c080",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000046c5a787c3c00a0f993a5878100",
+      "number": 93,
+      "shardId": 6,
+      "rootIndex": 12,
+      "root": "0000046c5a787c3c00a0f993a5878100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004f2f6743024383dbb0d09890808",
+      "number": 94,
+      "shardId": 6,
+      "rootIndex": 13,
+      "root": "000004f2f6743024383dbb0d09890808",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-000004f2fa783824383dbb0d05850400",
+      "number": 95,
+      "shardId": 6,
+      "rootIndex": 14,
+      "root": "000004f2fa783824383dbb0d05850400",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-00000509114f5da43e3c3a762e302000",
+      "number": 96,
+      "shardId": 6,
+      "rootIndex": 15,
+      "root": "00000509114f5da43e3c3a762e302000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000050a4020103efe7cf8743e1c2c00",
+      "number": 97,
+      "shardId": 7,
+      "rootIndex": 0,
+      "root": "0000050a4020103efe7cf8743e1c2c00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000050b073b3c3c0498f8f4f8c40200",
+      "number": 98,
+      "shardId": 7,
+      "rootIndex": 1,
+      "root": "0000050b073b3c3c0498f8f4f8c40200",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000050b0f3f3c3c0498faf4f0c00000",
+      "number": 99,
+      "shardId": 7,
+      "rootIndex": 2,
+      "root": "0000050b0f3f3c3c0498faf4f0c00000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    },
+    {
+      "id": "e20-0000053e0d6830383e3cfac1f2160000",
+      "number": 100,
+      "shardId": 7,
+      "rootIndex": 3,
+      "root": "0000053e0d6830383e3cfac1f2160000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal"
+    }
+  ],
   "shards": [
     {
       "id": 1,
@@ -27,6 +1031,150 @@
         "000000151b1e2c48fc7cff6a64201000",
         "000000174b572c7c043cff6834a81000",
         "0000002602010000c0e0f8d8fdfcfc7e"
+      ]
+    },
+    {
+      "id": 2,
+      "url": "shards/shard-000002.otbdag",
+      "bytes": 948936,
+      "sha256": "00af2426cd5fb78706f81b3bdeca9c6a022e3a7018f2eb0451b73ab9d0ce860b",
+      "roots": [
+        "0000003e23271d193d3f7f409c180000",
+        "0000003e5ade30000038ff0125210dfd",
+        "0000003f5367343c003cffc0ac980800",
+        "0000005a4a60607e00a0ffa5b59d1c00",
+        "0000005d337f00003e3c7f220c00383e",
+        "0000005e03071d193d3f7f203c382000",
+        "0000005e3e1e1c0e048cffa1c1e0a020",
+        "0000005f6f363c7f20b8fea090080000",
+        "0000007b46661a05043cfe84b898a4c0",
+        "00000100404f080038b8fcffbfb0e0c0",
+        "000001013d7d34203e3cfefec0800800",
+        "0000010206463078383cfefcf8380c02",
+        "0000010236566c0400f87cfcc8a890f8",
+        "0000010333027404048c7cfcccfc88f0",
+        "000001033f5e0c04048c7cfcc0a1b0f0",
+        "00000140747a342410b8febf8a840a18"
+      ]
+    },
+    {
+      "id": 3,
+      "url": "shards/shard-000003.otbdag",
+      "bytes": 855240,
+      "sha256": "482174912960f55781f2295f9e46a6a020065ba58ac3b667eada0dd4d7f170a4",
+      "roots": [
+        "000001432d19030100047e3c1266fcfe",
+        "00000181416b14083e3cbe7e3e142804",
+        "000001c111231c0c3e3c3e3e6edc2000",
+        "000001c1617330203e3c3e3e1e0c0c0c",
+        "000001e1613704243e3c3e1e1e481818",
+        "000001e171311c1c3e3c3e1e0e4e0200",
+        "000002004458784038b8fcfebba68480",
+        "000002004458784038b8fcffbaa68480",
+        "000002012874383e3038fcfed7890400",
+        "00000201b7d72e310c3c7cfc48281008",
+        "0000020313640c100f3efdfcec9b0000",
+        "0000020602327c940004fdb9fdcd8301",
+        "000002064e0f000038b8fcf8b0f0f894",
+        "000002076e041c0c9c9cbcf890f86030",
+        "00000207df2a70781c3c7c7820140e04",
+        "0000020818104000f83cbcf6e6eeb438"
+      ]
+    },
+    {
+      "id": 4,
+      "url": "shards/shard-000004.otbdag",
+      "bytes": 960280,
+      "sha256": "a47f5c23c7acde81fc12d5bc71ec6860340255dca21670f030a40a62546bdde5",
+      "roots": [
+        "00000209723a06023d3e7c760d051911",
+        "0000020a572600e080e4fcf4a8d8fc04",
+        "0000020bf35b3910103c7cf40c240625",
+        "0000020d00346c40202cfcf2ffca90b0",
+        "0000020f0b022e26323c3c7074fc1019",
+        "000002173f533c3c123c7ce8c0ac0000",
+        "0000021a2e1e400038387ce4d0e0bcf4",
+        "0000022d2070383e3038fcd0df8d0600",
+        "0000023e023d3c1e1c34fcc0fcc28000",
+        "00000246060c3c143d1f3d3979730100",
+        "000002472b7f20207c3c7c3854801c18",
+        "0000027f5050e000042c7c80acaf1cfc",
+        "000002bf0d3539290c1c3c40f24a0606",
+        "000002c29b9b8c3c04bc7c3c64643000",
+        "000002f6f3f03c7c203c7c080c0e0300",
+        "000003004c5c2c0038b8fcffb3a2c080"
+      ]
+    },
+    {
+      "id": 5,
+      "url": "shards/shard-000005.otbdag",
+      "bytes": 644232,
+      "sha256": "24b0ae057f94b43928d48b37cb49060c1c1743887ff2ec147040d9c0be99e0b3",
+      "roots": [
+        "000003010143a47018b8fcfefe381800",
+        "00000301cdf3b9381038bc7e320c0402",
+        "000003025e1e1c1824b4fcfca1e0a020",
+        "000003030f5a203e0080fcfcf0a59e00",
+        "000003031f0e2c7c243cfc7c60f01000",
+        "00000304d8f8f0a07e3c7c7a27030000",
+        "00000306c6edb0780020fc7939120e06",
+        "0000030717327c7c2018fcf8a8cc0200",
+        "000003095f660c047d3e3c7620183028",
+        "0000030a0a132d7c181cbcf4f4ec1000",
+        "0000030b0b733828109cfcf4f40c0602",
+        "0000032a5f787030089cfcd4a0868c08",
+        "0000033f461f1e01003cfcc0b9e0a020",
+        "000003685c48f870042c7c96a3b60484",
+        "000003be071f03003c3cfc4078601c0c",
+        "000003bf121b1c183e3c3c40ad640204"
+      ]
+    },
+    {
+      "id": 6,
+      "url": "shards/shard-000006.otbdag",
+      "bytes": 675880,
+      "sha256": "7254ff25cc92e699b450558eb7c5136333fee06d71e04d701c4fbfbdc25fdc1f",
+      "roots": [
+        "000003d9c57741000014fc263a083c3e",
+        "000004001bd63c70783cfb7f64280000",
+        "000004007ae838081e3c79ff05170504",
+        "000004009a623070783cfaff641c0c04",
+        "00000402cf2260403c3c9b7d301c1c1e",
+        "0000040402c60e001e3c793b3d39313c",
+        "000004040c0c0e7e0004197bf3f3f181",
+        "00000407172378280898faf8e8dc0602",
+        "0000040ae40e3c3e001d3bf51b714100",
+        "00000426575c2c7e043cf8d8a8a31000",
+        "0000042a7c7a3c3c009dbbd583850000",
+        "00000440685e10003efcfbbe96a0c080",
+        "0000046c5a787c3c00a0f993a5878100",
+        "000004f2f6743024383dbb0d09890808",
+        "000004f2fa783824383dbb0d05850400",
+        "00000509114f5da43e3c3a762e302000"
+      ]
+    },
+    {
+      "id": 7,
+      "url": "shards/shard-000007.otbdag",
+      "bytes": 477016,
+      "sha256": "112e8b1c570f4b93be267f51a419bfe7b29a2cba218e4088f7db5437720c87ed",
+      "roots": [
+        "0000050a4020103efe7cf8743e1c2c00",
+        "0000050b073b3c3c0498f8f4f8c40200",
+        "0000050b0f3f3c3c0498faf4f0c00000",
+        "0000053e0d6830383e3cfac1f2160000",
+        "00000553e7f3b8000a1c382c180c047e",
+        "00000566570a1c18183cfa98a8f4a020",
+        "000006061bf70c08b87cf87864083030",
+        "00000606f77501041e3c78f8080a3c28",
+        "00000607201c3c1e083878f8dfe34080",
+        "0000060e3e583804088c78f0c0a6c7f0",
+        "0000060e3f3d1d141e3c78f0c0422020",
+        "0000061e267f00001c1c7861d8803c7e",
+        "0000070246e61010783cf8fcb8182c24",
+        "0000070a178c4c480cbcf8f468313030",
+        "0000075f7f3f10007cbcb8a080c00c00",
+        "00000767432f2424083cf898bcd09010"
       ]
     }
   ]

@@ -1,6 +1,6 @@
-const CORE_CACHE = 'balance-dojo-core-v4';
-const DATA_CACHE = 'balance-dojo-data-v1';
-const CORE = ['./', './index.html', './styles.css?v=4', './src/app.js?v=4', './src/core/bitboard.js', './src/core/session.js', './src/core/symmetry.js', './src/core/teaching.js', './src/data/native-balanced-dag.js', './src/data/shard-repository.js', './src/storage/curriculum-store.js', './src/storage/progress-store.js', './data/release-manifest.json'];
+const CORE_CACHE = 'balance-dojo-core-v5';
+const DATA_CACHE = 'balance-dojo-data-v2';
+const CORE = ['./', './index.html', './styles.css?v=5', './src/app.js?v=5', './src/core/bitboard.js', './src/core/session.js', './src/core/symmetry.js', './src/core/teaching.js', './src/data/native-balanced-dag.js', './src/data/shard-repository.js', './src/storage/curriculum-store.js', './src/storage/progress-store.js', './data/release-manifest.json'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CORE_CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting()));

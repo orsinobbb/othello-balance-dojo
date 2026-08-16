@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CURRICULUM_KEY, isLessonAvailable, loadCurriculum, recordLessonSuccess } from '../src/storage/curriculum-store.js';
+import { CURRICULUM_KEY, LEGACY_CURRICULUM_KEY, isLessonAvailable, loadCurriculum, recordLessonSuccess } from '../src/storage/curriculum-store.js';
 
 function memoryStorage() {
   const values = new Map();
@@ -33,4 +33,16 @@ test('replaying a completed lesson keeps its first success and counts reviews', 
   assert.equal(state.completed[0].firstCompletedAt, first.firstCompletedAt);
   assert.equal(state.completed[0].completionCount, 2);
   assert.equal(state.completed[0].moves, 18);
+});
+
+test('stable lesson ids survive catalog growth and migrate v1 progress', () => {
+  const storage = memoryStorage();
+  storage.setItem(LEGACY_CURRICULUM_KEY, JSON.stringify({ completed: { 0: { completionCount: 1 } } }));
+  const lessons = [{ id: 'root-a' }, { id: 'root-b' }, { id: 'root-c' }];
+  let state = loadCurriculum(storage, lessons);
+  assert.equal(state.completed['root-a'].completionCount, 1);
+  assert.equal(state.unlockedThrough, 1);
+  state = recordLessonSuccess(storage, lessons, 1, { moves: 19 });
+  assert.equal(state.completed['root-b'].moves, 19);
+  assert.equal(state.unlockedThrough, 2);
 });

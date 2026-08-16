@@ -19,6 +19,17 @@ export class ShardRepository {
     if (manifest.format !== 'OTHELLO_TEACHING_RELEASE_V1') {
       throw new Error(`不支援的資料格式：${manifest.format || 'unknown'}`);
     }
+    if (!Array.isArray(manifest.lessons) || manifest.lessons.length !== manifest.lessonCount) {
+      throw new Error('題目目錄數量不符');
+    }
+    if (!Array.isArray(manifest.shards) || manifest.shards.length === 0) throw new Error('資料清單沒有分片');
+    const shardIds = new Set(manifest.shards.map((shard) => shard.id));
+    const lessonIds = new Set();
+    for (const lesson of manifest.lessons) {
+      if (!lesson.id || lessonIds.has(lesson.id)) throw new Error('題目編號遺失或重複');
+      if (!shardIds.has(lesson.shardId)) throw new Error(`題目 ${lesson.id} 指向不存在的分片`);
+      lessonIds.add(lesson.id);
+    }
     const pageUrl = globalThis.location ? globalThis.location.href : 'http://localhost/';
     manifest.baseUrl = new URL('.', new URL(manifestUrl, pageUrl)).href;
     return manifest;
@@ -41,5 +52,23 @@ export class ShardRepository {
     const loaded = { dag, shard, url };
     this.cache.set(key, loaded);
     return loaded;
+  }
+
+  async loadLesson(release, lesson) {
+    const shard = release.shards.find((candidate) => candidate.id === lesson.shardId);
+    if (!shard) throw new Error(`找不到題目分片：${lesson.shardId}`);
+    if (!Number.isInteger(lesson.rootIndex) || lesson.rootIndex < 0 || lesson.rootIndex >= shard.roots.length) {
+      throw new Error(`題目 ${lesson.id} 的盤面索引無效`);
+    }
+    if (lesson.root && shard.roots[lesson.rootIndex] !== lesson.root) throw new Error(`題目 ${lesson.id} 的盤面識別碼不符`);
+    return { ...(await this.loadShard(release, shard)), lesson };
+  }
+
+  loadedBytes(release) {
+    return release.shards.reduce((sum, shard) => sum + (this.cache.has(`${release.datasetId}:${shard.id}`) ? shard.bytes : 0), 0);
+  }
+
+  loadedShardCount(release) {
+    return release.shards.filter((shard) => this.cache.has(`${release.datasetId}:${shard.id}`)).length;
   }
 }
