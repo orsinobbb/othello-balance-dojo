@@ -3,12 +3,13 @@ import { ExactTeachingSession } from './core/session.js';
 import { inverseSymmetry, transformSquare } from './core/symmetry.js';
 import { analyzeTurn } from './core/teaching.js';
 import { ShardRepository } from './data/shard-repository.js';
+import { isLessonAvailable, loadCurriculum, recordLessonSuccess } from './storage/curriculum-store.js';
 import { ProgressStore } from './storage/progress-store.js';
 
 const elements = Object.fromEntries([
   'board', 'turn', 'position-meta', 'black-count', 'white-count', 'empty-count',
   'lesson-step', 'lesson-title', 'lesson-body', 'analysis-next', 'reveal', 'retry',
-  'next', 'replay', 'history', 'evidence', 'fatal', 'root-select', 'last-result'
+  'next', 'replay', 'history', 'evidence', 'fatal', 'root-select', 'question-progress', 'last-result'
 ].map((id) => [id, document.getElementById(id)]));
 
 const repository = new ShardRepository();
@@ -17,6 +18,7 @@ let release;
 let dag;
 let shard;
 let session;
+let curriculum;
 let rootIndex = Number(localStorage.getItem('balance-dojo-root') || 0);
 let lessonStage = 0;
 let lastSnapshot = null;
@@ -204,7 +206,7 @@ function render() {
   elements['black-count'].textContent = popcount(black);
   elements['white-count'].textContent = popcount(white);
   elements['empty-count'].textContent = session.empties;
-  elements['position-meta'].textContent = `題 ${rootIndex + 1}/${dag.rootCount} · node ${session.nodeId}`;
+  elements['position-meta'].textContent = `題目 ${String(rootIndex + 1).padStart(2, '0')}/${dag.rootCount} · node ${session.nodeId}`;
   elements.turn.textContent = session.phase === 'terminal'
     ? '精確和局完成'
     : `${session.turnColor === 0 ? '黑方' : '白方'}由你下 · ${session.legalDisplayMoves().length} 個合法手`;
@@ -212,7 +214,7 @@ function render() {
   elements['last-result'].hidden = !lastResult;
   elements['last-result'].textContent = lastResult;
   elements.retry.hidden = session.phase !== 'review';
-  elements.next.hidden = session.phase !== 'terminal';
+  elements.next.hidden = session.phase !== 'terminal' || rootIndex >= dag.rootCount - 1;
   elements.replay.hidden = session.phase !== 'terminal';
   elements['analysis-next'].hidden = session.phase !== 'playing';
   elements.reveal.hidden = session.phase !== 'playing' || lessonStage === 3;
@@ -225,6 +227,8 @@ function render() {
 
 async function finish() {
   lastSnapshot = session.snapshot();
+  curriculum = recordLessonSuccess(localStorage, dag.rootCount, rootIndex, { moves: lastSnapshot.history.length });
+  populateRootSelect();
   lastResult = `終局確認：黑 ${elements['black-count'].textContent}、白 ${elements['white-count'].textContent}，結果和局。`;
   render();
   try { await progressStore.saveSession(lastSnapshot); } catch (error) { console.warn('Progress save failed', error); }
@@ -244,12 +248,16 @@ function play(square) {
   if (!result.accepted) return;
   lastResult = `${movingColor} ${fact.name}：維持和局；翻 ${fact.flips} 子，下一方原有 ${fact.opponentMobility} 個合法選擇。`;
   lessonStage = 0;
+  if (session.phase === 'terminal') {
+    finish();
+    return;
+  }
   render();
-  if (session.phase === 'terminal') finish();
 }
 
 function startRoot(index) {
-  rootIndex = ((index % dag.rootCount) + dag.rootCount) % dag.rootCount;
+  const requested = Math.max(0, Math.min(dag.rootCount - 1, Number(index) || 0));
+  rootIndex = isLessonAvailable(curriculum, requested) ? requested : curriculum.unlockedThrough;
   localStorage.setItem('balance-dojo-root', String(rootIndex));
   elements['root-select'].value = String(rootIndex);
   session = new ExactTeachingSession(dag, dag.root(rootIndex), { control: 'both' });
@@ -306,16 +314,27 @@ function populateRootSelect() {
   for (let index = 0; index < dag.rootCount; index += 1) {
     const option = document.createElement('option');
     option.value = String(index);
-    option.textContent = index === 0 ? '第 1 題 · C1 搶手數' : `第 ${index + 1} 題`;
+    const title = index === 0 ? ' · C1 搶手數' : '';
+    const status = curriculum.completed[index]
+      ? ' · ✓ 已完成'
+      : index === curriculum.unlockedThrough ? ' · 目前關卡' : ' · 🔒 未解鎖';
+    option.textContent = `第 ${String(index + 1).padStart(2, '0')} 題${title}${status}`;
+    option.disabled = !isLessonAvailable(curriculum, index);
     elements['root-select'].append(option);
   }
+  elements['root-select'].value = String(rootIndex);
   elements['root-select'].disabled = false;
+  elements['question-progress'].textContent = curriculum.completedCount === dag.rootCount
+    ? `全部 ${dag.rootCount} 題完成，可自由複習`
+    : `已完成 ${curriculum.completedCount}/${dag.rootCount} · 下一關：第 ${String(curriculum.unlockedThrough + 1).padStart(2, '0')} 題`;
 }
 
 async function main() {
   release = await repository.loadRelease('./data/release-manifest.json');
   shard = release.shards[0];
   ({ dag } = await repository.loadShard(release, shard));
+  curriculum = loadCurriculum(localStorage, dag.rootCount);
+  if (!isLessonAvailable(curriculum, rootIndex)) rootIndex = curriculum.unlockedThrough;
   elements.evidence.textContent = `✓ SHA-256 已驗證 · ${dag.rootCount} 題 · ${(dag.byteLength / 1024).toFixed(0)} KiB`;
   populateRootSelect();
   startRoot(Number.isFinite(rootIndex) ? rootIndex : 0);

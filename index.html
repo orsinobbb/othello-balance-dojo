@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0f3d31">
   <title>黑白棋平衡道場｜逐手教學</title>
-  <link rel="stylesheet" href="./styles.css?v=3">
+  <link rel="stylesheet" href="./styles.css?v=4">
 </head>
 <body>
   <main class="shell">
@@ -19,9 +19,9 @@
     </header>
 
     <nav class="question-bar" aria-label="題目選擇">
-      <label for="root-select">目前題目</label>
+      <label for="root-select">學習題目</label>
       <select id="root-select" disabled><option>載入中…</option></select>
-      <span>第 1 題就是 C1 搶手數、看似送角的範例。</span>
+      <span id="question-progress">讀取學習進度…</span>
     </nav>
 
     <section class="workspace" aria-live="polite">
@@ -68,6 +68,6 @@
     </section>
     <p id="fatal" class="fatal" hidden></p>
   </main>
-  <script type="module" src="./src/app.js?v=3"></script>
+  <script type="module" src="./src/app.js?v=4"></script>
 </body>
 </html>
