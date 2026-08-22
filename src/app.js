@@ -56,6 +56,14 @@ function names(facts) {
   return facts.map((fact) => fact.name).join('、') || '沒有';
 }
 
+function theoryReasons(fact, limit = 2) {
+  return fact.theorySignals
+    .filter((signal) => signal.contribution > 0)
+    .slice(0, limit)
+    .map((signal) => signal.observation)
+    .join('；');
+}
+
 function closeFailureDialog() {
   const dialog = elements['failure-dialog'];
   if (dialog.open) dialog.close();
@@ -69,6 +77,8 @@ function showFailureDialog(analysis, failed) {
   addParagraph(body, '完整搜尋已證明：雙方都無失誤時，這個分支會被對手強制獲勝。這不是立即輸棋，而是已經離開平衡路線。');
   if (failed) {
     addParagraph(body, `盤面線索：翻 ${failed.flips} 子、讓對手有 ${failed.opponentMobility} 個合法手，並進入 ${failed.regionSize} 格空區。這些是檢討線索，不是單獨的證明。`, 'dialog-clue');
+    const reasons = theoryReasons(failed);
+    if (reasons) addParagraph(body, `棋理引擎當時觀察到：${reasons}。請把它和已證明的平衡手比較，不把單一規則當答案。`, 'dialog-clue');
   }
   addParagraph(body, `回到原盤後，重新比較 ${names(analysis.balanced)}。頁面下方也保留完整落點表。`, 'dialog-answer');
   if (typeof dialog.showModal === 'function') dialog.showModal();
@@ -140,27 +150,35 @@ function renderLesson(analysis) {
       addParagraph(body, '沒有特別巨大的空區，下一步直接比較每手送給對方多少選擇。', 'takeaway');
     }
   } else if (lessonStage === 1) {
-    elements['lesson-title'].textContent = '第二步：用對手行動力縮小候選';
-    addParagraph(body, `不要被「翻很多」吸引。逐手快算後，對手最少有 ${analysis.lowestMobility} 個合法手；把門檻放在最少值加一，可先留下 ${names(analysis.shortlist)}。`);
-    addList(body, analysis.shortlist, (fact) => `${fact.name}：翻 ${fact.flips} 子，對手 ${fact.opponentMobility} 手，位於 ${fact.regionSize} 格區。`);
-    const noisy = analysis.facts.filter((fact) => !analysis.shortlist.includes(fact)).sort((left, right) => right.opponentMobility - left.opponentMobility).slice(0, 3);
-    if (noisy.length > 0) addParagraph(body, `相較之下，${noisy.map((fact) => `${fact.name} 讓對手有 ${fact.opponentMobility} 手`).join('；')}，暫時降級。`, 'takeaway');
+    elements['lesson-title'].textContent = '第二步：讓適用棋理共同排序';
+    addParagraph(body, `棋理庫共有 ${analysis.theory.catalogSize} 條規則；本盤有 ${analysis.theory.activeTheories.length} 條能區分候選。先依角落、手數、行動力、奇偶、前沿與穩定性綜合留下 ${names(analysis.theory.shortlist)}。`);
+    addList(body, analysis.theory.shortlist, (fact) => `${fact.name}：棋理分 ${fact.theoryScore.toFixed(1)}。${theoryReasons(fact) || '各項訊號接近，暫不能靠棋理區分。'}`);
+    addParagraph(body, '這是未看精算答案的候選排序，只負責縮小閱讀範圍；不把分數最高直接當成證明。', 'warning-note');
   } else if (lessonStage === 2) {
-    elements['lesson-title'].textContent = '第三步：找雙方都想拿的節奏格';
-    if (analysis.sharedSingletons.length > 0) {
-      addParagraph(body, `${names(analysis.sharedSingletons)} 是孤立單格，而且換對手走時也能下。你現在不填，對方下一手可能就會把這個 tempo 拿走。`);
-      addParagraph(body, '重點不是這顆棋能否永久保留，而是這個空格由誰花掉一手；棋子日後被翻回去，已填掉的手數仍不會重來。', 'takeaway');
+    const primary = analysis.theory.primaryTheory;
+    elements['lesson-title'].textContent = primary ? `第三步：本盤主題—${primary.title}` : '第三步：本盤需要直接計算';
+    if (primary) {
+      addParagraph(body, primary.principle);
+      addParagraph(body, `限制：${primary.caveat}`, 'warning-note');
+      const signals = analysis.facts
+        .map((fact) => ({ fact, signal: fact.theorySignals.find((item) => item.id === primary.id) }))
+        .filter((item) => item.signal)
+        .sort((left, right) => right.signal.contribution - left.signal.contribution)
+        .slice(0, 5);
+      addList(body, signals, ({ fact, signal }) => `${fact.name}：${signal.observation}`);
+      const supporting = analysis.theory.explanatoryTheories.slice(1, 4);
+      if (supporting.length > 0) addParagraph(body, `還要一起檢查：${supporting.map((theory) => theory.title).join('、')}。`, 'takeaway');
     } else {
-      addParagraph(body, '這一手沒有「雙方共用的孤立單格」。改看奇數區由誰先進、以及落子後是否被迫替對方開角。');
-    }
-    const cornerGifts = analysis.facts.filter((fact) => fact.openedCorners.length > 0);
-    if (cornerGifts.length > 0) {
-      addList(body, cornerGifts, (fact) => `${fact.name} 後會讓對手能下角落 ${fact.openedCorners.join('、')}。這是代價，仍需和手數收益一起算。`);
-      addParagraph(body, '「送角」不會自動成為妙手；只有當搶到的節奏足以補償角落，完整搜尋才會接受。', 'warning-note');
+      addParagraph(body, '現有棋理沒有一條能穩定區分平衡手與失敗手；保留候選並交給完整搜尋。', 'warning-note');
     }
   } else {
     elements['lesson-title'].textContent = '第四步：完整搜尋負責最後證明';
     addParagraph(body, `人類原則把 ${analysis.legalCount} 手縮成候選，但不能單獨證明答案。精算結果：${names(analysis.balanced)} 能維持和局，其餘 ${analysis.failures.length} 手在雙方無失誤下必敗。`);
+    if (analysis.theory.heuristicAgreement) {
+      addParagraph(body, `本盤棋理第一候選 ${analysis.theory.ranked[0].name} 通過精算；若有多條平衡路線，依棋理分只決定教學順序，不刪除其他正解。`, 'takeaway');
+    } else {
+      addParagraph(body, `本盤棋理第一候選 ${analysis.theory.ranked[0].name} 未通過精算，因此撤銷推薦；改由已證明集合中的 ${names(analysis.theory.verifiedRanked)} 繼續。這類盤面會標記為「必須計算」。`, 'warning-note');
+    }
     renderExactTable(analysis, body);
     addParagraph(body, '金色落點是資料中所有可繼續維持和局的選擇；這份資料目前證明勝負類別，不虛構未保存的最終子差。', 'takeaway');
   }
@@ -169,7 +187,7 @@ function renderLesson(analysis) {
 function renderBoard(analysis) {
   const legal = new Set(session.phase === 'playing' ? session.legalDisplayMoves() : []);
   const balanced = new Set(analysis && (lessonStage === 3 || session.phase === 'review') ? analysis.balanced.map((fact) => fact.displaySquare) : []);
-  const candidates = new Set(analysis && lessonStage >= 1 && lessonStage < 3 ? analysis.shortlist.map((fact) => fact.displaySquare) : []);
+  const candidates = new Set(analysis && lessonStage >= 1 && lessonStage < 3 ? analysis.theory.shortlist.map((fact) => fact.displaySquare) : []);
   const tempos = new Set(analysis && lessonStage === 2 ? analysis.sharedSingletons.map((fact) => fact.displaySquare) : []);
   elements.board.replaceChildren();
   for (let square = 0; square < 64; square += 1) {

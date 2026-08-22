@@ -8,6 +8,7 @@
     "start": "node tools/serve.mjs",
     "test": "node --test",
     "audit:data": "node tools/audit-demo-data.mjs",
+    "audit:theory": "node tools/audit-theory.mjs",
     "build:release100": "node tools/build-release.mjs --source ../../data/e20-balanced/v1 --lessons 100"
   },
   "engines": {
