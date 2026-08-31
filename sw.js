@@ -1,7 +1,7 @@
-const CORE_CACHE = 'balance-dojo-core-v11';
+const CORE_CACHE = 'balance-dojo-core-v12';
 const DATA_CACHE = 'balance-dojo-data-v3';
 const CORE = [
-  './', './index.html', './styles.css?v=7', './config.js', './manifest.webmanifest', './assets/icon.svg',
+  './', './index.html', './privacy.html', './terms.html', './styles.css?v=8', './config.js', './manifest.webmanifest', './assets/icon.svg',
   './src/app.js?v=11', './src/core/bitboard.js', './src/core/session.js', './src/core/symmetry.js',
   './src/core/teaching.js', './src/core/theory-catalog.js', './src/core/learning-model.js',
   './src/curriculum/adaptive-selector.js', './src/config/runtime-config.js', './src/auth/auth-provider.js',

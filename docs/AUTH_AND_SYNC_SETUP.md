@@ -1,6 +1,6 @@
 # Google 登入與跨裝置同步設定
 
-目前網站預設是完整可用的訪客模式。登入不是學習前置條件；沒有 Supabase 設定時，所有紀錄只存於瀏覽器 IndexedDB。
+網站保留完整可用的訪客模式，登入不是學習前置條件。正式 GitHub Pages 站已啟用 Supabase；使用者不登入時，所有紀錄仍只存於瀏覽器 IndexedDB。
 
 ## 啟用方式
 
@@ -9,6 +9,8 @@
 3. 在 Google Cloud 與 Supabase URL Configuration 同時加入正式 GitHub Pages 網址及本機測試網址。
 4. 將 `config.example.js` 複製為 `config.js`，填入 Supabase Project URL 與公開 anon key，並把 `sync.enabled` 設成 `true`。
 5. 以兩個瀏覽器登入同一帳號，分別答題後按「立即同步」，確認事件合併且不重複。
+
+目前 Google OAuth 應用程式仍在「測試」發布狀態，只允許已列入 Google Cloud 測試使用者的帳號登入。完成正式營運資料、跨帳號 RLS 驗收與刪除流程後，再切換為正式發布。
 
 `anonKey` 是設計成可公開於前端的專案識別金鑰；資料安全依賴資料表的 Row Level Security。不得把 `service_role` 金鑰、Google client secret 或任何私人密鑰放進網站或 GitHub。
 

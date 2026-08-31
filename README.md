@@ -17,7 +17,7 @@
 - 「課程」呈現棋理分布與引導進度；「練習」保留黑白雙方都由使用者走的完整路徑。
 - 「進度」不是單純答對率：提示程度、關鍵局面、獨立成功與跨題成功都會影響熟練度。
 - 每次互動保存為只追加事件，投影資料可隨時重建；舊版 `localStorage` 完成紀錄會自動遷移。
-- 預設訪客／離線優先。帳號頁可匯出 JSON；設定 Supabase 後才啟用 Google 登入與跨裝置同步。
+- 訪客／離線模式始終可用；正式站已接上 Supabase，使用者可自行選擇 Google 登入與跨裝置同步。帳號頁也可匯出 JSON。
 
 ## 資料範圍
 
@@ -58,4 +58,4 @@ npm.cmd run audit:data
 
 頁面只載入靜態 HTML、CSS、JavaScript 與預先精算的 DAG 資料，不需要執行中的求解器。Service Worker 提供離線快取，IndexedDB 保存 append-only 學習事件、同步 outbox 與可重建投影。題庫分片與個人資料分離：瀏覽器只按當前題目下載約 1 MiB 分片。
 
-跨裝置功能採可插拔架構。預設 `config.js` 不含任何帳密並保持純前端本機模式；Google OAuth、Supabase RLS 與部署驗收方式見 [docs/AUTH_AND_SYNC_SETUP.md](docs/AUTH_AND_SYNC_SETUP.md)。
+跨裝置功能採可插拔架構。`config.js` 只含可公開的 Supabase URL 與 publishable key；Google Client Secret 與 Supabase Service Role Key 不會進入前端或 Git。Google OAuth、Supabase RLS 與部署驗收方式見 [docs/AUTH_AND_SYNC_SETUP.md](docs/AUTH_AND_SYNC_SETUP.md)。
