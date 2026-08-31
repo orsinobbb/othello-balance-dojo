@@ -1,10 +1,63 @@
 {
   "format": "OTHELLO_TEACHING_RELEASE_V1",
-  "datasetId": "e20-lessons-100-c06c50b5f280",
+  "datasetId": "e20-curriculum-100-3e9a48b54479",
   "graphFormat": "OTBDAG01",
   "evidence": "exact-e20-to-terminal",
+  "selection": {
+    "strategy": "diverse-v1",
+    "catalogRoots": 17104,
+    "theoryCatalogVersion": "1.0.0",
+    "sourceManifestSha256": "38dc82612000af87901e4f9052ab6fdcca90b1aa4d0f008a0c3c0dbec8070832",
+    "maxShards": 20,
+    "difficultyThresholds": {
+      "foundationMaximum": 28,
+      "intermediateMaximum": 36
+    }
+  },
   "lessonCount": 100,
-  "generatedAt": "2026-08-16T14:16:55.766Z",
+  "generatedAt": "2026-08-29T09:09:07.400Z",
+  "distributions": {
+    "difficulty": {
+      "advanced": 21,
+      "foundation": 41,
+      "intermediate": 38
+    },
+    "primaryTheoryFamily": {
+      "corner": 37,
+      "frontier": 3,
+      "mobility": 27,
+      "none": 2,
+      "parity": 9,
+      "stability": 8,
+      "tempo": 14
+    },
+    "primaryTheory": {
+      "anchored-edge": 8,
+      "deny-corner": 16,
+      "empty-c-risk": 7,
+      "empty-x-risk": 7,
+      "flip-economy": 3,
+      "frontier-discipline": 7,
+      "none": 2,
+      "odd-region": 2,
+      "opponent-mobility": 8,
+      "potential-mobility": 5,
+      "preserve-large-region": 7,
+      "reply-resilience": 7,
+      "shared-singleton": 14,
+      "take-corner": 7
+    },
+    "calculationRequired": {
+      "false": 54,
+      "true": 46
+    },
+    "balancedMoveCount": {
+      "1": 59,
+      "2": 31,
+      "3": 8,
+      "4": 2
+    }
+  },
   "lessons": [
     {
       "id": "e20-00000000b3c4e40220a07ffe4c3b1878",
@@ -15,997 +68,3496 @@
       "empties": 20,
       "phase": "endgame",
       "evidence": "exact-e20-to-terminal",
-      "title": "C1 搶手數"
+      "title": "C1 搶手數",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "empty-x-risk",
+          "potential-mobility",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          10,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-00000000cbf3f800001cff7f340c043c",
+      "id": "e20-00002df77bfdfeff0000100804020100",
       "number": 2,
-      "shardId": 1,
-      "rootIndex": 1,
-      "root": "00000000cbf3f800001cff7f340c043c",
+      "shardId": 1123,
+      "rootIndex": 11,
+      "root": "00002df77bfdfeff0000100804020100",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 4,
+        "legalMoveCount": 2,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 0,
+        "primaryTheoryId": null,
+        "primaryTheoryFamily": null,
+        "theoryIds": [],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-00000002466b100038b8fcfcb894eac8",
+      "id": "e20-00003c1f23069af8000040e0dcf92507",
       "number": 3,
-      "shardId": 1,
-      "rootIndex": 2,
-      "root": "00000002466b100038b8fcfcb894eac8",
+      "shardId": 1130,
+      "rootIndex": 10,
+      "root": "00003c1f23069af8000040e0dcf92507",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 4,
+        "legalMoveCount": 2,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 0,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "reply-resilience",
+          "anchored-edge",
+          "frontier-discipline",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-00000002530f1f000038fefcacf0a03c",
+      "id": "e20-00081c7e7f0340fe0000030100fcbf01",
       "number": 4,
-      "shardId": 1,
-      "rootIndex": 3,
-      "root": "00000002530f1f000038fefcacf0a03c",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000000027b6a100038b8fcfc8494ecc4",
-      "number": 5,
-      "shardId": 1,
-      "rootIndex": 4,
-      "root": "000000027b6a100038b8fcfc8494ecc4",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000002bf271d193d3f3f3c40980000",
-      "number": 6,
-      "shardId": 1,
-      "rootIndex": 5,
-      "root": "00000002bf271d193d3f3f3c40980000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000002d6e8f0a07e3d7d7d29110000",
-      "number": 7,
-      "shardId": 1,
-      "rootIndex": 6,
-      "root": "00000002d6e8f0a07e3d7d7d29110000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000003053d3d7c3e3c7cbc7a020000",
-      "number": 8,
-      "shardId": 1,
+      "shardId": 892,
       "rootIndex": 7,
-      "root": "00000003053d3d7c3e3c7cbc7a020000",
+      "root": "00081c7e7f0340fe0000030100fcbf01",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 5.5,
+        "legalMoveCount": 3,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 1,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "reply-resilience",
+          "frontier-discipline",
+          "anchored-edge"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          20
+        ]
+      }
+    },
+    {
+      "id": "e20-013777f7771913030808080808060c0c",
+      "number": 5,
+      "shardId": 495,
+      "rootIndex": 6,
+      "root": "013777f7771913030808080808060c0c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 7.5,
+        "legalMoveCount": 3,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 1,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "anchored-edge",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          11,
+          7,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00011e7d01757b1f00000002fe8a84e0",
+      "number": 6,
+      "shardId": 688,
+      "rootIndex": 11,
+      "root": "00011e7d01757b1f00000002fe8a84e0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 8.5,
+        "legalMoveCount": 2,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 1,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "frontier-discipline",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-010111f5eddd3e7c140e040a10204080",
+      "number": 7,
+      "shardId": 837,
+      "rootIndex": 6,
+      "root": "010111f5eddd3e7c140e040a10204080",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手潛在行動力",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 8.5,
+        "legalMoveCount": 3,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 1,
+        "primaryTheoryId": "potential-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "potential-mobility",
+          "preserve-large-region",
+          "frontier-discipline",
+          "reply-resilience",
+          "odd-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          10,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-04043870bd73257f1008070f020c1a00",
+      "number": 8,
+      "shardId": 132,
+      "rootIndex": 10,
+      "root": "04043870bd73257f1008070f020c1a00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 9.5,
+        "legalMoveCount": 4,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 1,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "shared-singleton",
+          "anchored-edge",
+          "odd-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          10,
+          4,
+          4,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00083e3f1eacc6fe000040c0e1523800",
+      "number": 9,
+      "shardId": 620,
+      "rootIndex": 8,
+      "root": "00083e3f1eacc6fe000040c0e1523800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 10,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "opponent-mobility",
+          "anchored-edge"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          17,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-00000647000408000ebcf8b8fcf8b07c",
+      "number": 10,
+      "shardId": 1026,
+      "rootIndex": 10,
+      "root": "00000647000408000ebcf8b8fcf8b07c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 11,
+        "legalMoveCount": 4,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "flip-economy"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          5,
+          4,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00017e64381c0c3c0080809bc7e3f100",
+      "number": 11,
+      "shardId": 723,
+      "rootIndex": 15,
+      "root": "00017e64381c0c3c0080809bc7e3f100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 11,
+        "legalMoveCount": 4,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "deny-corner",
+          "empty-c-risk",
+          "reply-resilience",
+          "anchored-edge"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          14,
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00211f0df153277f0000a0720e2c1800",
+      "number": 12,
+      "shardId": 880,
+      "rootIndex": 1,
+      "root": "00211f0df153277f0000a0720e2c1800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 11,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "shared-singleton",
+          "reply-resilience",
+          "preserve-large-region",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          15,
+          4,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000000004eee3438be7c7efe30100800",
+      "number": 13,
+      "shardId": 36,
+      "rootIndex": 0,
+      "root": "000000004eee3438be7c7efe30100800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 12,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "opponent-mobility",
+          "frontier-discipline",
+          "flip-economy",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          12,
+          4,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000023eb540c7cf87e2c1c14a8700000",
+      "number": 14,
+      "shardId": 1164,
+      "rootIndex": 7,
+      "root": "000023eb540c7cf87e2c1c14a8700000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 13,
+        "legalMoveCount": 3,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "deny-corner",
+          "reply-resilience",
+          "empty-x-risk",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          5,
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0107f7ff33311b11281808000c0e0408",
+      "number": 15,
+      "shardId": 495,
+      "rootIndex": 3,
+      "root": "0107f7ff33311b11281808000c0e0408",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 13.5,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 3,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "reply-resilience",
+          "potential-mobility",
+          "odd-region",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          10,
+          5,
+          2,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00002446160c161338bcd8b8e8f0a820",
+      "number": 16,
+      "shardId": 688,
+      "rootIndex": 0,
+      "root": "00002446160c161338bcd8b8e8f0a820",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 15.5,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 4,
+        "failureMoveCount": 3,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "opponent-mobility",
+          "potential-mobility",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          12,
+          3,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00002afb7bf5feff00040404040a0100",
+      "number": 17,
+      "shardId": 1123,
+      "rootIndex": 9,
+      "root": "00002afb7bf5feff00040404040a0100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 16,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 4,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "empty-x-risk",
+          "potential-mobility",
+          "empty-c-risk",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-080d3fa7878f153c0080405878700800",
+      "number": 18,
+      "shardId": 1143,
+      "rootIndex": 12,
+      "root": "080d3fa7878f153c0080405878700800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 18,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 4,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "empty-x-risk",
+          "potential-mobility",
+          "empty-c-risk",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          5,
+          4,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000043a542c18103c3dfbc5abd18000",
+      "number": 19,
+      "shardId": 1026,
+      "rootIndex": 9,
+      "root": "0000043a542c18103c3dfbc5abd18000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 18.5,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "opponent-mobility",
+          "reply-resilience",
+          "deny-corner",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          8,
+          5,
+          4,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-000032ee7afc3c7e203c0d1105010100",
+      "number": 20,
+      "shardId": 723,
+      "rootIndex": 6,
+      "root": "000032ee7afc3c7e203c0d1105010100",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 18.5,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "empty-c-risk",
+          "deny-corner",
+          "potential-mobility",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          6,
+          3,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0008004e561930303cb4f8b0a8e48c0c",
+      "number": 21,
+      "shardId": 892,
+      "rootIndex": 5,
+      "root": "0008004e561930303cb4f8b0a8e48c0c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 18.5,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "opponent-mobility",
+          "empty-c-risk",
+          "frontier-discipline",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          5,
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-0008f0607854027f00040c1c07abfd80",
+      "number": 22,
+      "shardId": 380,
+      "rootIndex": 7,
+      "root": "0008f0607854027f00040c1c07abfd80",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 18.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "opponent-mobility",
+          "reply-resilience",
+          "deny-corner",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          18,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00000001014901000000f8fefeb6fefe",
+      "number": 23,
+      "shardId": 36,
+      "rootIndex": 1,
+      "root": "00000001014901000000f8fefeb6fefe",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 19,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "opponent-mobility",
+          "frontier-discipline",
+          "empty-x-risk",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-022cf860001308fc0000061dfe6c3603",
+      "number": 24,
+      "shardId": 837,
+      "rootIndex": 10,
+      "root": "022cf860001308fc0000061dfe6c3603",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 19.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "anchored-edge",
+          "shared-singleton",
+          "empty-c-risk",
+          "reply-resilience"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          4,
+          3,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00000001460e10207cbcfcfcb8f0ac08",
+      "number": 25,
+      "shardId": 1026,
+      "rootIndex": 0,
+      "root": "00000001460e10207cbcfcfcb8f0ac08",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 20.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "deny-corner",
+          "empty-x-risk",
+          "frontier-discipline",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          7,
+          3,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00000b172e1e0c78103e74e8d0e07000",
+      "number": 26,
+      "shardId": 296,
+      "rootIndex": 5,
+      "root": "00000b172e1e0c78103e74e8d0e07000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "優先奇數空區的手數機會",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 20.5,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 4,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "odd-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "odd-region",
+          "empty-x-risk",
+          "reply-resilience",
+          "flip-economy",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          6,
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00003161e34b24061e3c0e1e1cb41810",
+      "number": 27,
+      "shardId": 723,
+      "rootIndex": 5,
+      "root": "00003161e34b24061e3c0e1e1cb41810",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 21,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "deny-corner",
+          "frontier-discipline",
+          "reply-resilience",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          8,
+          5,
+          3,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000206bf422604047c3cf8403c58b820",
+      "number": 28,
+      "shardId": 957,
+      "rootIndex": 8,
+      "root": "000206bf422604047c3cf8403c58b820",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 21,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "opponent-mobility",
+          "empty-c-risk",
+          "empty-x-risk",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          6,
+          4,
+          3,
+          3,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-060503179706141070387ce868f80800",
+      "number": 29,
+      "shardId": 1143,
+      "rootIndex": 9,
+      "root": "060503179706141070387ce868f80800",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 21,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "deny-corner",
+          "empty-c-risk",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          6,
+          4,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000030b192b797e3c3c3c3426140400",
+      "number": 30,
+      "shardId": 1130,
+      "rootIndex": 0,
+      "root": "0000030b192b797e3c3c3c3426140400",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 23,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "opponent-mobility",
+          "preserve-large-region",
+          "potential-mobility",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          14,
+          4,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0008007b403c38107cb4fe84bec18000",
+      "number": 31,
+      "shardId": 620,
+      "rootIndex": 7,
+      "root": "0008007b403c38107cb4fe84bec18000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 23,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "deny-corner",
+          "empty-x-risk",
+          "opponent-mobility",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          8,
+          5,
+          4,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0182c7ebf3f39808004c38140c0c0404",
+      "number": 32,
+      "shardId": 837,
+      "rootIndex": 9,
+      "root": "0182c7ebf3f39808004c38140c0c0404",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 24.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "reply-resilience",
+          "opponent-mobility",
+          "anchored-edge",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          6,
+          4,
+          1
+        ]
+      }
     },
     {
       "id": "e20-000000040090f0207c3cfef8fc6c0c8c",
-      "number": 9,
+      "number": 33,
       "shardId": 1,
       "rootIndex": 8,
       "root": "000000040090f0207c3cfef8fc6c0c8c",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 25.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-x-risk",
+          "empty-c-risk",
+          "opponent-mobility",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          15,
+          3,
+          1,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-0000000a5f3e3c3c1c2c7ff4a0c08000",
-      "number": 10,
-      "shardId": 1,
+      "id": "e20-040443d70f1d0d09713a3c28f0600000",
+      "number": 34,
+      "shardId": 1143,
+      "rootIndex": 4,
+      "root": "040443d70f1d0d09713a3c28f0600000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 25.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "opponent-mobility",
+          "frontier-discipline",
+          "preserve-large-region",
+          "empty-x-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          4,
+          4,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-040443df0f1d0d09713a3c20f0600000",
+      "number": 35,
+      "shardId": 1143,
+      "rootIndex": 5,
+      "root": "040443df0f1d0d09713a3c20f0600000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 25.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "opponent-mobility",
+          "frontier-discipline",
+          "preserve-large-region",
+          "empty-x-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          4,
+          4,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00083e6678787cfc1c30401906040203",
+      "number": 36,
+      "shardId": 620,
       "rootIndex": 9,
-      "root": "0000000a5f3e3c3c1c2c7ff4a0c08000",
+      "root": "00083e6678787cfc1c30401906040203",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 27,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "potential-mobility",
+          "reply-resilience",
+          "deny-corner",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          10,
+          6,
+          4
+        ]
+      }
     },
     {
-      "id": "e20-0000000af74f03022030fff408303c1d",
-      "number": 11,
-      "shardId": 1,
+      "id": "e20-0001e2fc52382c02792e1d030d070300",
+      "number": 37,
+      "shardId": 141,
       "rootIndex": 10,
-      "root": "0000000af74f03022030fff408303c1d",
+      "root": "0001e2fc52382c02792e1d030d070300",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "少翻子保留彈性",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 19,
+        "legalMoveCount": 4,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "flip-economy",
+        "primaryTheoryFamily": "frontier",
+        "theoryIds": [
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          12,
+          3,
+          2,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-0000000e1f237f022030ff7060dc001d",
-      "number": 12,
-      "shardId": 1,
-      "rootIndex": 11,
-      "root": "0000000e1f237f022030ff7060dc001d",
+      "id": "e20-00243f00fc787efe0000007f03070001",
+      "number": 38,
+      "shardId": 880,
+      "rootIndex": 5,
+      "root": "00243f00fc787efe0000007f03070001",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "少翻子保留彈性",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 20,
+        "legalMoveCount": 3,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 2,
+        "primaryTheoryId": "flip-economy",
+        "primaryTheoryFamily": "frontier",
+        "theoryIds": [
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          17,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00243738fc787efe0010080703070001",
+      "number": 39,
+      "shardId": 880,
+      "rootIndex": 4,
+      "root": "00243738fc787efe0010080703070001",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "少翻子保留彈性",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 22.5,
+        "legalMoveCount": 4,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 3,
+        "primaryTheoryId": "flip-economy",
+        "primaryTheoryFamily": "frontier",
+        "theoryIds": [
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          17,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0008f8600010007f0000041cffefff80",
+      "number": 40,
+      "shardId": 380,
+      "rootIndex": 9,
+      "root": "0008f8600010007f0000041cffefff80",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 24,
+        "legalMoveCount": 5,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 4,
+        "primaryTheoryId": null,
+        "primaryTheoryFamily": null,
+        "theoryIds": [],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          19,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0438122b56eaf0980000ecd4a8140e04",
+      "number": 41,
+      "shardId": 910,
+      "rootIndex": 12,
+      "root": "0438122b56eaf0980000ecd4a8140e04",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 24,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 4,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "reply-resilience",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          6,
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00002e662b067e3f1018111914f880c0",
+      "number": 42,
+      "shardId": 688,
+      "rootIndex": 3,
+      "root": "00002e662b067e3f1018111914f880c0",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "foundation",
+        "difficultyScore": 25.5,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "empty-c-risk",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          11,
+          7,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-0001c345cb570800483c3cba34283430",
+      "number": 43,
+      "shardId": 957,
+      "rootIndex": 0,
+      "root": "0001c345cb570800483c3cba34283430",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-x-risk",
+          "empty-c-risk",
+          "reply-resilience",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          6,
+          5,
+          4,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-000206ff4e2602017c3cf8003058bc00",
+      "number": 44,
+      "shardId": 957,
+      "rootIndex": 10,
+      "root": "000206ff4e2602017c3cf8003058bc00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "deny-corner",
+          "anchored-edge",
+          "empty-c-risk",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          8,
+          4,
+          3,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00141f0702c8383f002060b87d364680",
+      "number": 45,
+      "shardId": 837,
+      "rootIndex": 2,
+      "root": "00141f0702c8383f002060b87d364680",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "shared-singleton",
+          "opponent-mobility",
+          "preserve-large-region",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          14,
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00002e343874e07c0021d1cbc68a1e00",
+      "number": 46,
+      "shardId": 688,
+      "rootIndex": 2,
+      "root": "00002e343874e07c0021d1cbc68a1e00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 29.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "anchored-edge",
+          "preserve-large-region",
+          "empty-c-risk",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          14,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0004ec5606363e7f1c38122878480000",
+      "number": 47,
+      "shardId": 620,
+      "rootIndex": 5,
+      "root": "0004ec5606363e7f1c38122878480000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 30,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "opponent-mobility",
+          "empty-x-risk",
+          "empty-c-risk",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          9,
+          6,
+          5
+        ]
+      }
+    },
+    {
+      "id": "e20-0000013f03374c800000fec0fcc8303f",
+      "number": 48,
+      "shardId": 1026,
+      "rootIndex": 4,
+      "root": "0000013f03374c800000fec0fcc8303f",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 30.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "deny-corner",
+          "anchored-edge",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          16,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000023363460e00090efd0c1c39307e",
+      "number": 49,
+      "shardId": 36,
+      "rootIndex": 2,
+      "root": "0000023363460e00090efd0c1c39307e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 30.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "deny-corner",
+          "frontier-discipline",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          8,
+          7,
+          2,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000042254b051d0e081ebcd8b4fa8020",
+      "number": 50,
+      "shardId": 1130,
+      "rootIndex": 11,
+      "root": "000042254b051d0e081ebcd8b4fa8020",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 30.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "deny-corner",
+          "opponent-mobility",
+          "potential-mobility",
+          "empty-x-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          5,
+          4,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "e20-0000000e2e1a0064101cfcf0d0e4fe98",
-      "number": 13,
+      "number": 51,
       "shardId": 1,
       "rootIndex": 12,
       "root": "0000000e2e1a0064101cfcf0d0e4fe98",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 31,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "deny-corner",
+          "anchored-edge",
+          "opponent-mobility",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          14,
+          6
+        ]
+      }
+    },
+    {
+      "id": "e20-00000767231f2e7f0038f8185c601000",
+      "number": 52,
+      "shardId": 1026,
+      "rootIndex": 14,
+      "root": "00000767231f2e7f0038f8185c601000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 31,
+        "legalMoveCount": 13,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "empty-c-risk",
+          "empty-x-risk",
+          "deny-corner",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          13,
+          6,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00018387b7fb14001c3c7c7808042220",
+      "number": 53,
+      "shardId": 296,
+      "rootIndex": 12,
+      "root": "00018387b7fb14001c3c7c7808042220",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 31,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "empty-x-risk",
+          "potential-mobility",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          5,
+          4,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00000306085038208088fcf9f7aec09c",
+      "number": 54,
+      "shardId": 141,
+      "rootIndex": 1,
+      "root": "00000306085038208088fcf9f7aec09c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 32,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "frontier-discipline",
+          "potential-mobility",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          13,
+          6,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00022468301c381e1c3c5b170f630500",
+      "number": 55,
+      "shardId": 957,
+      "rootIndex": 15,
+      "root": "00022468301c381e1c3c5b170f630500",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 32,
+        "legalMoveCount": 13,
+        "balancedMoveCount": 3,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "deny-corner",
+          "opponent-mobility",
+          "potential-mobility",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          15,
+          3,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0001017f29df0f0004047e805620307c",
+      "number": 56,
+      "shardId": 1130,
+      "rootIndex": 15,
+      "root": "0001017f29df0f0004047e805620307c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "preserve-large-region",
+          "potential-mobility",
+          "empty-x-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          11,
+          3,
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00010bbdc7bf3d24003cb44238404000",
+      "number": 57,
+      "shardId": 723,
+      "rootIndex": 14,
+      "root": "00010bbdc7bf3d24003cb44238404000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 13,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 11,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "deny-corner",
+          "empty-c-risk",
+          "anchored-edge",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          12,
+          3,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00000b5e263a3c043e3c742059840270",
+      "number": 58,
+      "shardId": 1164,
+      "rootIndex": 1,
+      "root": "00000b5e263a3c043e3c742059840270",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 35.5,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 11,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "deny-corner",
+          "anchored-edge",
+          "empty-c-risk",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          4,
+          4,
+          3,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000068e5e3e5cfa08f8f87020c02000",
+      "number": 59,
+      "shardId": 1130,
+      "rootIndex": 1,
+      "root": "0000068e5e3e5cfa08f8f87020c02000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "anchored-edge",
+          "deny-corner",
+          "reply-resilience",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          13,
+          4,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000cfe644b0381f787c3018390c0400",
+      "number": 60,
+      "shardId": 1164,
+      "rootIndex": 14,
+      "root": "0000cfe644b0381f787c3018390c0400",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "empty-c-risk",
+          "preserve-large-region",
+          "flip-economy",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          5,
+          5,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0101cd6d30311c141e7e32120f0a0020",
+      "number": 61,
+      "shardId": 837,
+      "rootIndex": 7,
+      "root": "0101cd6d30311c141e7e32120f0a0020",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          10,
+          4,
+          4,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0117f7f713110f03080808082c0e1038",
+      "number": 62,
+      "shardId": 495,
+      "rootIndex": 5,
+      "root": "0117f7f713110f03080808082c0e1038",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 28.5,
+        "legalMoveCount": 6,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 5,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          10,
+          7,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00000002bf271d193d3f3f3c40980000",
+      "number": 63,
+      "shardId": 1,
+      "rootIndex": 5,
+      "root": "00000002bf271d193d3f3f3c40980000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 29,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "deny-corner",
+          "reply-resilience",
+          "empty-x-risk",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          7,
+          3,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0400c8d4cf9cbc3e083e342830604000",
+      "number": 64,
+      "shardId": 837,
+      "rootIndex": 11,
+      "root": "0400c8d4cf9cbc3e083e342830604000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 29,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "empty-x-risk",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          6,
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-010b1103d7f71f0538140e3c28080008",
+      "number": 65,
+      "shardId": 495,
+      "rootIndex": 4,
+      "root": "010b1103d7f71f0538140e3c28080008",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 31,
+        "legalMoveCount": 7,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 6,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          10,
+          7,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00020008046e3c7c3c1cfef6fa100000",
+      "number": 66,
+      "shardId": 957,
+      "rootIndex": 3,
+      "root": "00020008046e3c7c3c1cfef6fa100000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 32.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "deny-corner",
+          "empty-x-risk",
+          "potential-mobility",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          11,
+          5,
+          4
+        ]
+      }
+    },
+    {
+      "id": "e20-0000007b140e0c0008bcfe84e8f0b07c",
+      "number": 67,
+      "shardId": 1026,
+      "rootIndex": 2,
+      "root": "0000007b140e0c0008bcfe84e8f0b07c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-x-risk",
+          "empty-c-risk",
+          "odd-region",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          6,
+          5,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000006e666667eff081c781819180000",
+      "number": 68,
+      "shardId": 1026,
+      "rootIndex": 11,
+      "root": "000006e666667eff081c781819180000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "empty-x-risk",
+          "reply-resilience",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          7,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00002c66c3060600483c13193cf8387c",
+      "number": 69,
+      "shardId": 1123,
+      "rootIndex": 10,
+      "root": "00002c66c3060600483c13193cf8387c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "deny-corner",
+          "frontier-discipline",
+          "odd-region",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          5,
+          4,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-00002fcbc44030501010d0343b3f0f0e",
+      "number": 70,
+      "shardId": 688,
+      "rootIndex": 4,
+      "root": "00002fcbc44030501010d0343b3f0f0e",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "deny-corner",
+          "preserve-large-region",
+          "empty-c-risk",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          6,
+          4,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000334bed7a3e3f30304cb412040000",
+      "number": 71,
+      "shardId": 296,
+      "rootIndex": 6,
+      "root": "0000334bed7a3e3f30304cb412040000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "deny-corner",
+          "empty-x-risk",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          5,
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-0000424616191808b47cbcb8e8e42424",
+      "number": 72,
+      "shardId": 1123,
+      "rootIndex": 13,
+      "root": "0000424616191808b47cbcb8e8e42424",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "empty-c-risk",
+          "opponent-mobility",
+          "reply-resilience",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          5,
+          4,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000818185efbc28143c7c7e7a100000",
+      "number": 73,
+      "shardId": 688,
+      "rootIndex": 9,
+      "root": "0000818185efbc28143c7c7e7a100000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手實際行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "opponent-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "opponent-mobility",
+          "empty-x-risk",
+          "reply-resilience",
+          "deny-corner",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          5,
+          5,
+          5,
+          3,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-041c78f429703c7e0023070a160f0000",
+      "number": 74,
+      "shardId": 910,
+      "rootIndex": 0,
+      "root": "041c78f429703c7e0023070a160f0000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "承受對手最佳回應",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 33.5,
+        "legalMoveCount": 8,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 7,
+        "primaryTheoryId": "reply-resilience",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "reply-resilience",
+          "preserve-large-region",
+          "empty-x-risk",
+          "potential-mobility",
+          "deny-corner"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          6,
+          3,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0012f8d8f4e4cefc000406240a1b3000",
+      "number": 75,
+      "shardId": 837,
+      "rootIndex": 0,
+      "root": "0012f8d8f4e4cefc000406240a1b3000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 34,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "opponent-mobility",
+          "reply-resilience",
+          "frontier-discipline",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          17,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-000200c85874a87c783c7f3626091000",
+      "number": 76,
+      "shardId": 957,
+      "rootIndex": 5,
+      "root": "000200c85874a87c783c7f3626091000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 36,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "empty-c-risk",
+          "reply-resilience",
+          "potential-mobility",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          4,
+          4,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000206bf4a6602017c3cf84034183c20",
+      "number": 77,
+      "shardId": 957,
+      "rootIndex": 9,
+      "root": "000206bf4a6602017c3cf84034183c20",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "優先奇數空區的手數機會",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 36,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "odd-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "odd-region",
+          "empty-x-risk",
+          "reply-resilience",
+          "opponent-mobility",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          4,
+          4,
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-042030f9f9cc9c2428984f0606330000",
+      "number": 78,
+      "shardId": 910,
+      "rootIndex": 4,
+      "root": "042030f9f9cc9c2428984f0606330000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手潛在行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 36,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "potential-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "potential-mobility",
+          "empty-c-risk",
+          "preserve-large-region",
+          "reply-resilience",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          5,
+          4,
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-043d2340b810383000805c3e47ef0504",
+      "number": 79,
+      "shardId": 910,
+      "rootIndex": 15,
+      "root": "043d2340b810383000805c3e47ef0504",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手潛在行動力",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 36,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "potential-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "potential-mobility",
+          "frontier-discipline",
+          "empty-c-risk",
+          "odd-region",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          4,
+          3,
+          3,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-08090f4ecc0f033f1030703030b03c00",
+      "number": 80,
+      "shardId": 1143,
+      "rootIndex": 11,
+      "root": "08090f4ecc0f033f1030703030b03c00",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "增加角落錨定邊線",
+      "pedagogy": {
+        "difficulty": "intermediate",
+        "difficultyScore": 36,
+        "legalMoveCount": 9,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 8,
+        "primaryTheoryId": "anchored-edge",
+        "primaryTheoryFamily": "stability",
+        "theoryIds": [
+          "anchored-edge",
+          "preserve-large-region",
+          "empty-x-risk",
+          "frontier-discipline",
+          "reply-resilience"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          5,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-000003ffed1f3c3e203c7c0012204000",
+      "number": 81,
+      "shardId": 1123,
+      "rootIndex": 1,
+      "root": "000003ffed1f3c3e203c7c0012204000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "取得角落",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38,
+        "legalMoveCount": 13,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 12,
+        "primaryTheoryId": "take-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "take-corner",
+          "opponent-mobility",
+          "anchored-edge",
+          "deny-corner",
+          "empty-c-risk"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          7,
+          5,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-0604f971e16124223038040e1e1c5018",
+      "number": 82,
+      "shardId": 1143,
+      "rootIndex": 8,
+      "root": "0604f971e16124223038040e1e1c5018",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38,
+        "legalMoveCount": 13,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 12,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "deny-corner",
+          "opponent-mobility",
+          "empty-x-risk",
+          "odd-region"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          4,
+          4,
+          4,
+          4,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0001070b0dcf35340034787472304888",
+      "number": 83,
+      "shardId": 723,
+      "rootIndex": 13,
+      "root": "0001070b0dcf35340034787472304888",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 40.5,
+        "legalMoveCount": 14,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 13,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "preserve-large-region",
+          "frontier-discipline",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": true,
+        "calculationRequired": false,
+        "regionSizes": [
+          15,
+          3,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00004608b87878b03c3cb9f646060400",
+      "number": 84,
+      "shardId": 36,
+      "rootIndex": 13,
+      "root": "00004608b87878b03c3cb9f646060400",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 36.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "opponent-mobility",
+          "potential-mobility",
+          "frontier-discipline",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          9,
+          4,
+          4,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00020faed6f30404703c7050280c2a28",
+      "number": 85,
+      "shardId": 132,
+      "rootIndex": 2,
+      "root": "00020faed6f30404703c7050280c2a28",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 36.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "empty-x-risk",
+          "potential-mobility",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          5,
+          4,
+          4,
+          3,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "e20-0821f1fdf8f83c7e001c0c0204060000",
+      "number": 86,
+      "shardId": 1143,
+      "rootIndex": 15,
+      "root": "0821f1fdf8f83c7e001c0c0204060000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手潛在行動力",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 36.5,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "potential-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "potential-mobility",
+          "empty-x-risk",
+          "empty-c-risk",
+          "opponent-mobility",
+          "preserve-large-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          6,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "e20-00000000cbf3f800001cff7f340c043c",
+      "number": 87,
+      "shardId": 1,
+      "rootIndex": 1,
+      "root": "00000000cbf3f800001cff7f340c043c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "frontier-discipline",
+          "empty-c-risk",
+          "deny-corner",
+          "flip-economy"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          13,
+          4,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000000af74f03022030fff408303c1d",
+      "number": 88,
+      "shardId": 1,
+      "rootIndex": 10,
+      "root": "0000000af74f03022030fff408303c1d",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-x-risk",
+          "empty-c-risk",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          9,
+          6,
+          4,
+          1
+        ]
+      }
     },
     {
       "id": "e20-000000151b1e2c48fc7cff6a64201000",
-      "number": 14,
+      "number": 89,
       "shardId": 1,
       "rootIndex": 13,
       "root": "000000151b1e2c48fc7cff6a64201000",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000000174b572c7c043cff6834a81000",
-      "number": 15,
-      "shardId": 1,
-      "rootIndex": 14,
-      "root": "000000174b572c7c043cff6834a81000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000002602010000c0e0f8d8fdfcfc7e",
-      "number": 16,
-      "shardId": 1,
-      "rootIndex": 15,
-      "root": "0000002602010000c0e0f8d8fdfcfc7e",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000003e23271d193d3f7f409c180000",
-      "number": 17,
-      "shardId": 2,
-      "rootIndex": 0,
-      "root": "0000003e23271d193d3f7f409c180000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000003e5ade30000038ff0125210dfd",
-      "number": 18,
-      "shardId": 2,
-      "rootIndex": 1,
-      "root": "0000003e5ade30000038ff0125210dfd",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000003f5367343c003cffc0ac980800",
-      "number": 19,
-      "shardId": 2,
-      "rootIndex": 2,
-      "root": "0000003f5367343c003cffc0ac980800",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000005a4a60607e00a0ffa5b59d1c00",
-      "number": 20,
-      "shardId": 2,
-      "rootIndex": 3,
-      "root": "0000005a4a60607e00a0ffa5b59d1c00",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000005d337f00003e3c7f220c00383e",
-      "number": 21,
-      "shardId": 2,
-      "rootIndex": 4,
-      "root": "0000005d337f00003e3c7f220c00383e",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000005e03071d193d3f7f203c382000",
-      "number": 22,
-      "shardId": 2,
-      "rootIndex": 5,
-      "root": "0000005e03071d193d3f7f203c382000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000005e3e1e1c0e048cffa1c1e0a020",
-      "number": 23,
-      "shardId": 2,
-      "rootIndex": 6,
-      "root": "0000005e3e1e1c0e048cffa1c1e0a020",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000005f6f363c7f20b8fea090080000",
-      "number": 24,
-      "shardId": 2,
-      "rootIndex": 7,
-      "root": "0000005f6f363c7f20b8fea090080000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000007b46661a05043cfe84b898a4c0",
-      "number": 25,
-      "shardId": 2,
-      "rootIndex": 8,
-      "root": "0000007b46661a05043cfe84b898a4c0",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000100404f080038b8fcffbfb0e0c0",
-      "number": 26,
-      "shardId": 2,
-      "rootIndex": 9,
-      "root": "00000100404f080038b8fcffbfb0e0c0",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001013d7d34203e3cfefec0800800",
-      "number": 27,
-      "shardId": 2,
-      "rootIndex": 10,
-      "root": "000001013d7d34203e3cfefec0800800",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000010206463078383cfefcf8380c02",
-      "number": 28,
-      "shardId": 2,
-      "rootIndex": 11,
-      "root": "0000010206463078383cfefcf8380c02",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000010236566c0400f87cfcc8a890f8",
-      "number": 29,
-      "shardId": 2,
-      "rootIndex": 12,
-      "root": "0000010236566c0400f87cfcc8a890f8",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000010333027404048c7cfcccfc88f0",
-      "number": 30,
-      "shardId": 2,
-      "rootIndex": 13,
-      "root": "0000010333027404048c7cfcccfc88f0",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001033f5e0c04048c7cfcc0a1b0f0",
-      "number": 31,
-      "shardId": 2,
-      "rootIndex": 14,
-      "root": "000001033f5e0c04048c7cfcc0a1b0f0",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000140747a342410b8febf8a840a18",
-      "number": 32,
-      "shardId": 2,
-      "rootIndex": 15,
-      "root": "00000140747a342410b8febf8a840a18",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001432d19030100047e3c1266fcfe",
-      "number": 33,
-      "shardId": 3,
-      "rootIndex": 0,
-      "root": "000001432d19030100047e3c1266fcfe",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000181416b14083e3cbe7e3e142804",
-      "number": 34,
-      "shardId": 3,
-      "rootIndex": 1,
-      "root": "00000181416b14083e3cbe7e3e142804",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001c111231c0c3e3c3e3e6edc2000",
-      "number": 35,
-      "shardId": 3,
-      "rootIndex": 2,
-      "root": "000001c111231c0c3e3c3e3e6edc2000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001c1617330203e3c3e3e1e0c0c0c",
-      "number": 36,
-      "shardId": 3,
-      "rootIndex": 3,
-      "root": "000001c1617330203e3c3e3e1e0c0c0c",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001e1613704243e3c3e1e1e481818",
-      "number": 37,
-      "shardId": 3,
-      "rootIndex": 4,
-      "root": "000001e1613704243e3c3e1e1e481818",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000001e171311c1c3e3c3e1e0e4e0200",
-      "number": 38,
-      "shardId": 3,
-      "rootIndex": 5,
-      "root": "000001e171311c1c3e3c3e1e0e4e0200",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002004458784038b8fcfebba68480",
-      "number": 39,
-      "shardId": 3,
-      "rootIndex": 6,
-      "root": "000002004458784038b8fcfebba68480",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002004458784038b8fcffbaa68480",
-      "number": 40,
-      "shardId": 3,
-      "rootIndex": 7,
-      "root": "000002004458784038b8fcffbaa68480",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002012874383e3038fcfed7890400",
-      "number": 41,
-      "shardId": 3,
-      "rootIndex": 8,
-      "root": "000002012874383e3038fcfed7890400",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000201b7d72e310c3c7cfc48281008",
-      "number": 42,
-      "shardId": 3,
-      "rootIndex": 9,
-      "root": "00000201b7d72e310c3c7cfc48281008",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020313640c100f3efdfcec9b0000",
-      "number": 43,
-      "shardId": 3,
-      "rootIndex": 10,
-      "root": "0000020313640c100f3efdfcec9b0000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020602327c940004fdb9fdcd8301",
-      "number": 44,
-      "shardId": 3,
-      "rootIndex": 11,
-      "root": "0000020602327c940004fdb9fdcd8301",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002064e0f000038b8fcf8b0f0f894",
-      "number": 45,
-      "shardId": 3,
-      "rootIndex": 12,
-      "root": "000002064e0f000038b8fcf8b0f0f894",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002076e041c0c9c9cbcf890f86030",
-      "number": 46,
-      "shardId": 3,
-      "rootIndex": 13,
-      "root": "000002076e041c0c9c9cbcf890f86030",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000207df2a70781c3c7c7820140e04",
-      "number": 47,
-      "shardId": 3,
-      "rootIndex": 14,
-      "root": "00000207df2a70781c3c7c7820140e04",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020818104000f83cbcf6e6eeb438",
-      "number": 48,
-      "shardId": 3,
-      "rootIndex": 15,
-      "root": "0000020818104000f83cbcf6e6eeb438",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000209723a06023d3e7c760d051911",
-      "number": 49,
-      "shardId": 4,
-      "rootIndex": 0,
-      "root": "00000209723a06023d3e7c760d051911",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020a572600e080e4fcf4a8d8fc04",
-      "number": 50,
-      "shardId": 4,
-      "rootIndex": 1,
-      "root": "0000020a572600e080e4fcf4a8d8fc04",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020bf35b3910103c7cf40c240625",
-      "number": 51,
-      "shardId": 4,
-      "rootIndex": 2,
-      "root": "0000020bf35b3910103c7cf40c240625",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020d00346c40202cfcf2ffca90b0",
-      "number": 52,
-      "shardId": 4,
-      "rootIndex": 3,
-      "root": "0000020d00346c40202cfcf2ffca90b0",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000020f0b022e26323c3c7074fc1019",
-      "number": 53,
-      "shardId": 4,
-      "rootIndex": 4,
-      "root": "0000020f0b022e26323c3c7074fc1019",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002173f533c3c123c7ce8c0ac0000",
-      "number": 54,
-      "shardId": 4,
-      "rootIndex": 5,
-      "root": "000002173f533c3c123c7ce8c0ac0000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000021a2e1e400038387ce4d0e0bcf4",
-      "number": 55,
-      "shardId": 4,
-      "rootIndex": 6,
-      "root": "0000021a2e1e400038387ce4d0e0bcf4",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000022d2070383e3038fcd0df8d0600",
-      "number": 56,
-      "shardId": 4,
-      "rootIndex": 7,
-      "root": "0000022d2070383e3038fcd0df8d0600",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000023e023d3c1e1c34fcc0fcc28000",
-      "number": 57,
-      "shardId": 4,
-      "rootIndex": 8,
-      "root": "0000023e023d3c1e1c34fcc0fcc28000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000246060c3c143d1f3d3979730100",
-      "number": 58,
-      "shardId": 4,
-      "rootIndex": 9,
-      "root": "00000246060c3c143d1f3d3979730100",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002472b7f20207c3c7c3854801c18",
-      "number": 59,
-      "shardId": 4,
-      "rootIndex": 10,
-      "root": "000002472b7f20207c3c7c3854801c18",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000027f5050e000042c7c80acaf1cfc",
-      "number": 60,
-      "shardId": 4,
-      "rootIndex": 11,
-      "root": "0000027f5050e000042c7c80acaf1cfc",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002bf0d3539290c1c3c40f24a0606",
-      "number": 61,
-      "shardId": 4,
-      "rootIndex": 12,
-      "root": "000002bf0d3539290c1c3c40f24a0606",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002c29b9b8c3c04bc7c3c64643000",
-      "number": 62,
-      "shardId": 4,
-      "rootIndex": 13,
-      "root": "000002c29b9b8c3c04bc7c3c64643000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000002f6f3f03c7c203c7c080c0e0300",
-      "number": 63,
-      "shardId": 4,
-      "rootIndex": 14,
-      "root": "000002f6f3f03c7c203c7c080c0e0300",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003004c5c2c0038b8fcffb3a2c080",
-      "number": 64,
-      "shardId": 4,
-      "rootIndex": 15,
-      "root": "000003004c5c2c0038b8fcffb3a2c080",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003010143a47018b8fcfefe381800",
-      "number": 65,
-      "shardId": 5,
-      "rootIndex": 0,
-      "root": "000003010143a47018b8fcfefe381800",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000301cdf3b9381038bc7e320c0402",
-      "number": 66,
-      "shardId": 5,
-      "rootIndex": 1,
-      "root": "00000301cdf3b9381038bc7e320c0402",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003025e1e1c1824b4fcfca1e0a020",
-      "number": 67,
-      "shardId": 5,
-      "rootIndex": 2,
-      "root": "000003025e1e1c1824b4fcfca1e0a020",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003030f5a203e0080fcfcf0a59e00",
-      "number": 68,
-      "shardId": 5,
-      "rootIndex": 3,
-      "root": "000003030f5a203e0080fcfcf0a59e00",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003031f0e2c7c243cfc7c60f01000",
-      "number": 69,
-      "shardId": 5,
-      "rootIndex": 4,
-      "root": "000003031f0e2c7c243cfc7c60f01000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000304d8f8f0a07e3c7c7a27030000",
-      "number": 70,
-      "shardId": 5,
-      "rootIndex": 5,
-      "root": "00000304d8f8f0a07e3c7c7a27030000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000306c6edb0780020fc7939120e06",
-      "number": 71,
-      "shardId": 5,
-      "rootIndex": 6,
-      "root": "00000306c6edb0780020fc7939120e06",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000030717327c7c2018fcf8a8cc0200",
-      "number": 72,
-      "shardId": 5,
-      "rootIndex": 7,
-      "root": "0000030717327c7c2018fcf8a8cc0200",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003095f660c047d3e3c7620183028",
-      "number": 73,
-      "shardId": 5,
-      "rootIndex": 8,
-      "root": "000003095f660c047d3e3c7620183028",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000030a0a132d7c181cbcf4f4ec1000",
-      "number": 74,
-      "shardId": 5,
-      "rootIndex": 9,
-      "root": "0000030a0a132d7c181cbcf4f4ec1000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000030b0b733828109cfcf4f40c0602",
-      "number": 75,
-      "shardId": 5,
-      "rootIndex": 10,
-      "root": "0000030b0b733828109cfcf4f40c0602",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000032a5f787030089cfcd4a0868c08",
-      "number": 76,
-      "shardId": 5,
-      "rootIndex": 11,
-      "root": "0000032a5f787030089cfcd4a0868c08",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000033f461f1e01003cfcc0b9e0a020",
-      "number": 77,
-      "shardId": 5,
-      "rootIndex": 12,
-      "root": "0000033f461f1e01003cfcc0b9e0a020",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003685c48f870042c7c96a3b60484",
-      "number": 78,
-      "shardId": 5,
-      "rootIndex": 13,
-      "root": "000003685c48f870042c7c96a3b60484",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003be071f03003c3cfc4078601c0c",
-      "number": 79,
-      "shardId": 5,
-      "rootIndex": 14,
-      "root": "000003be071f03003c3cfc4078601c0c",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003bf121b1c183e3c3c40ad640204",
-      "number": 80,
-      "shardId": 5,
-      "rootIndex": 15,
-      "root": "000003bf121b1c183e3c3c40ad640204",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000003d9c57741000014fc263a083c3e",
-      "number": 81,
-      "shardId": 6,
-      "rootIndex": 0,
-      "root": "000003d9c57741000014fc263a083c3e",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004001bd63c70783cfb7f64280000",
-      "number": 82,
-      "shardId": 6,
-      "rootIndex": 1,
-      "root": "000004001bd63c70783cfb7f64280000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004007ae838081e3c79ff05170504",
-      "number": 83,
-      "shardId": 6,
-      "rootIndex": 2,
-      "root": "000004007ae838081e3c79ff05170504",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004009a623070783cfaff641c0c04",
-      "number": 84,
-      "shardId": 6,
-      "rootIndex": 3,
-      "root": "000004009a623070783cfaff641c0c04",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000402cf2260403c3c9b7d301c1c1e",
-      "number": 85,
-      "shardId": 6,
-      "rootIndex": 4,
-      "root": "00000402cf2260403c3c9b7d301c1c1e",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000040402c60e001e3c793b3d39313c",
-      "number": 86,
-      "shardId": 6,
-      "rootIndex": 5,
-      "root": "0000040402c60e001e3c793b3d39313c",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004040c0c0e7e0004197bf3f3f181",
-      "number": 87,
-      "shardId": 6,
-      "rootIndex": 6,
-      "root": "000004040c0c0e7e0004197bf3f3f181",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000407172378280898faf8e8dc0602",
-      "number": 88,
-      "shardId": 6,
-      "rootIndex": 7,
-      "root": "00000407172378280898faf8e8dc0602",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000040ae40e3c3e001d3bf51b714100",
-      "number": 89,
-      "shardId": 6,
-      "rootIndex": 8,
-      "root": "0000040ae40e3c3e001d3bf51b714100",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000426575c2c7e043cf8d8a8a31000",
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "empty-c-risk",
+          "reply-resilience",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          6,
+          4,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0002040804603c7c3c1cfaf4fa1f0000",
       "number": 90,
-      "shardId": 6,
-      "rootIndex": 9,
-      "root": "00000426575c2c7e043cf8d8a8a31000",
+      "shardId": 957,
+      "rootIndex": 6,
+      "root": "0002040804603c7c3c1cfaf4fa1f0000",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "減少新增前沿子",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "frontier-discipline",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "frontier-discipline",
+          "deny-corner",
+          "empty-c-risk",
+          "empty-x-risk",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          5,
+          4,
+          4
+        ]
+      }
     },
     {
-      "id": "e20-0000042a7c7a3c3c009dbbd583850000",
+      "id": "e20-0008f704cc4030107e34087b323e0c08",
       "number": 91,
-      "shardId": 6,
-      "rootIndex": 10,
-      "root": "0000042a7c7a3c3c009dbbd583850000",
+      "shardId": 380,
+      "rootIndex": 8,
+      "root": "0008f704cc4030107e34087b323e0c08",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "延後打開最大空區",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 38.5,
+        "legalMoveCount": 10,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 9,
+        "primaryTheoryId": "preserve-large-region",
+        "primaryTheoryFamily": "parity",
+        "theoryIds": [
+          "preserve-large-region",
+          "frontier-discipline",
+          "empty-c-risk",
+          "opponent-mobility",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          6,
+          3,
+          3,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-00000440685e10003efcfbbe96a0c080",
+      "id": "e20-00000312b4ce9600283c7c6c4a30287c",
       "number": 92,
-      "shardId": 6,
-      "rootIndex": 11,
-      "root": "00000440685e10003efcfbbe96a0c080",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000046c5a787c3c00a0f993a5878100",
-      "number": 93,
-      "shardId": 6,
-      "rootIndex": 12,
-      "root": "0000046c5a787c3c00a0f993a5878100",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004f2f6743024383dbb0d09890808",
-      "number": 94,
-      "shardId": 6,
-      "rootIndex": 13,
-      "root": "000004f2f6743024383dbb0d09890808",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-000004f2fa783824383dbb0d05850400",
-      "number": 95,
-      "shardId": 6,
-      "rootIndex": 14,
-      "root": "000004f2fa783824383dbb0d05850400",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-00000509114f5da43e3c3a762e302000",
-      "number": 96,
-      "shardId": 6,
-      "rootIndex": 15,
-      "root": "00000509114f5da43e3c3a762e302000",
-      "empties": 20,
-      "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
-    },
-    {
-      "id": "e20-0000050a4020103efe7cf8743e1c2c00",
-      "number": 97,
-      "shardId": 7,
+      "shardId": 1123,
       "rootIndex": 0,
-      "root": "0000050a4020103efe7cf8743e1c2c00",
+      "root": "00000312b4ce9600283c7c6c4a30287c",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 39,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "frontier-discipline",
+          "potential-mobility",
+          "preserve-large-region",
+          "opponent-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          6,
+          5,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-0000050b073b3c3c0498f8f4f8c40200",
-      "number": 98,
-      "shardId": 7,
+      "id": "e20-041c9f1725991010002060e8da666c04",
+      "number": 93,
+      "shardId": 910,
       "rootIndex": 1,
-      "root": "0000050b073b3c3c0498f8f4f8c40200",
+      "root": "041c9f1725991010002060e8da666c04",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 39,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 2,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-x-risk",
+          "potential-mobility",
+          "opponent-mobility",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          7,
+          4,
+          4,
+          4,
+          1
+        ]
+      }
     },
     {
-      "id": "e20-0000050b0f3f3c3c0498faf4f0c00000",
+      "id": "e20-0000000e1f237f022030ff7060dc001d",
+      "number": 94,
+      "shardId": 1,
+      "rootIndex": 11,
+      "root": "0000000e1f237f022030ff7060dc001d",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "避免立即送角",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 41,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "deny-corner",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "deny-corner",
+          "empty-c-risk",
+          "reply-resilience",
+          "empty-x-risk",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          9,
+          4,
+          4,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0000001912b71c78243cff66ec482000",
+      "number": 95,
+      "shardId": 1026,
+      "rootIndex": 1,
+      "root": "0000001912b71c78243cff66ec482000",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 41,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "flip-economy",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          5,
+          4,
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-000001ff73354c800000fe000cca313f",
+      "number": 96,
+      "shardId": 1026,
+      "rootIndex": 5,
+      "root": "000001ff73354c800000fe000cca313f",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 41,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "frontier-discipline",
+          "preserve-large-region",
+          "deny-corner"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          16,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00000c7ef7f644800c3c72010808383c",
+      "number": 97,
+      "shardId": 36,
+      "rootIndex": 9,
+      "root": "00000c7ef7f644800c3c72010808383c",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 C 格風險",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 41,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "empty-c-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-c-risk",
+          "deny-corner",
+          "preserve-large-region",
+          "frontier-discipline",
+          "odd-region"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          8,
+          5,
+          5,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-00141f0004ca313f002060bf7b344c80",
+      "number": 98,
+      "shardId": 837,
+      "rootIndex": 1,
+      "root": "00141f0004ca313f002060bf7b344c80",
+      "empties": 20,
+      "phase": "endgame",
+      "evidence": "exact-e20-to-terminal",
+      "title": "搶走雙方共用單格",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 41,
+        "legalMoveCount": 11,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 10,
+        "primaryTheoryId": "shared-singleton",
+        "primaryTheoryFamily": "tempo",
+        "theoryIds": [
+          "shared-singleton",
+          "opponent-mobility",
+          "preserve-large-region",
+          "potential-mobility",
+          "reply-resilience"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          14,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "id": "e20-0008e422353a30007c341bddca450c00",
       "number": 99,
-      "shardId": 7,
-      "rootIndex": 2,
-      "root": "0000050b0f3f3c3c0498faf4f0c00000",
+      "shardId": 380,
+      "rootIndex": 6,
+      "root": "0008e422353a30007c341bddca450c00",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "壓低對手潛在行動力",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 42.5,
+        "legalMoveCount": 12,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 11,
+        "primaryTheoryId": "potential-mobility",
+        "primaryTheoryFamily": "mobility",
+        "theoryIds": [
+          "potential-mobility",
+          "opponent-mobility",
+          "empty-c-risk",
+          "preserve-large-region",
+          "frontier-discipline"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          13,
+          4,
+          3
+        ]
+      }
     },
     {
-      "id": "e20-0000053e0d6830383e3cfac1f2160000",
+      "id": "e20-0006207c2c07090020185f825378347e",
       "number": 100,
-      "shardId": 7,
-      "rootIndex": 3,
-      "root": "0000053e0d6830383e3cfac1f2160000",
+      "shardId": 892,
+      "rootIndex": 2,
+      "root": "0006207c2c07090020185f825378347e",
       "empties": 20,
       "phase": "endgame",
-      "evidence": "exact-e20-to-terminal"
+      "evidence": "exact-e20-to-terminal",
+      "title": "空角旁 X 格風險",
+      "pedagogy": {
+        "difficulty": "advanced",
+        "difficultyScore": 48.5,
+        "legalMoveCount": 14,
+        "balancedMoveCount": 1,
+        "failureMoveCount": 13,
+        "primaryTheoryId": "empty-x-risk",
+        "primaryTheoryFamily": "corner",
+        "theoryIds": [
+          "empty-x-risk",
+          "reply-resilience",
+          "empty-c-risk",
+          "deny-corner",
+          "potential-mobility"
+        ],
+        "heuristicAgreement": false,
+        "calculationRequired": true,
+        "regionSizes": [
+          6,
+          6,
+          5,
+          1,
+          1,
+          1
+        ]
+      }
     }
   ],
   "shards": [
@@ -1034,147 +3586,443 @@
       ]
     },
     {
-      "id": 2,
-      "url": "shards/shard-000002.otbdag",
-      "bytes": 948936,
-      "sha256": "00af2426cd5fb78706f81b3bdeca9c6a022e3a7018f2eb0451b73ab9d0ce860b",
+      "id": 36,
+      "url": "shards/shard-000036.otbdag",
+      "bytes": 839528,
+      "sha256": "6d782c7477d5360f8bf84bff80fb9b0e0c415b084c753aee9bc85c610068fbab",
       "roots": [
-        "0000003e23271d193d3f7f409c180000",
-        "0000003e5ade30000038ff0125210dfd",
-        "0000003f5367343c003cffc0ac980800",
-        "0000005a4a60607e00a0ffa5b59d1c00",
-        "0000005d337f00003e3c7f220c00383e",
-        "0000005e03071d193d3f7f203c382000",
-        "0000005e3e1e1c0e048cffa1c1e0a020",
-        "0000005f6f363c7f20b8fea090080000",
-        "0000007b46661a05043cfe84b898a4c0",
-        "00000100404f080038b8fcffbfb0e0c0",
-        "000001013d7d34203e3cfefec0800800",
-        "0000010206463078383cfefcf8380c02",
-        "0000010236566c0400f87cfcc8a890f8",
-        "0000010333027404048c7cfcccfc88f0",
-        "000001033f5e0c04048c7cfcc0a1b0f0",
-        "00000140747a342410b8febf8a840a18"
+        "000000004eee3438be7c7efe30100800",
+        "00000001014901000000f8fefeb6fefe",
+        "0000023363460e00090efd0c1c39307e",
+        "0000045c8a57227d7c1c392274281c00",
+        "0000060283050d000c0c39fc7cfa307e",
+        "00000808cb672f083c3c777634181010",
+        "00000b09712d3e7d1c1c34360ed20000",
+        "00000b73ed58283e043c740c12271600",
+        "00000c7cf3f664900c3c73030c08180c",
+        "00000c7ef7f644800c3c72010808383c",
+        "00000d06078a047e181c72f8f8743800",
+        "00002106dee81818fc3cdc7820162420",
+        "0000332a36333c1c143c4cd4c8cc8200",
+        "00004608b87878b03c3cb9f646060400",
+        "0000512915234100201c8e96eadc3c3c",
+        "00006e361b171f1d143c914864682000"
       ]
     },
     {
-      "id": 3,
-      "url": "shards/shard-000003.otbdag",
-      "bytes": 855240,
-      "sha256": "482174912960f55781f2295f9e46a6a020065ba58ac3b667eada0dd4d7f170a4",
+      "id": 132,
+      "url": "shards/shard-000132.otbdag",
+      "bytes": 893064,
+      "sha256": "1bba941c866eb7b6d4a2a07dec1cc6eca6acee66d2f666347dd6496b23413a58",
       "roots": [
-        "000001432d19030100047e3c1266fcfe",
-        "00000181416b14083e3cbe7e3e142804",
-        "000001c111231c0c3e3c3e3e6edc2000",
-        "000001c1617330203e3c3e3e1e0c0c0c",
-        "000001e1613704243e3c3e1e1e481818",
-        "000001e171311c1c3e3c3e1e0e4e0200",
-        "000002004458784038b8fcfebba68480",
-        "000002004458784038b8fcffbaa68480",
-        "000002012874383e3038fcfed7890400",
-        "00000201b7d72e310c3c7cfc48281008",
-        "0000020313640c100f3efdfcec9b0000",
-        "0000020602327c940004fdb9fdcd8301",
-        "000002064e0f000038b8fcf8b0f0f894",
-        "000002076e041c0c9c9cbcf890f86030",
-        "00000207df2a70781c3c7c7820140e04",
-        "0000020818104000f83cbcf6e6eeb438"
+        "00020418d042047c3c3cb8672f3c3800",
+        "00020418d060147c3c3cb8672f1f0800",
+        "00020faed6f30404703c7050280c2a28",
+        "000307011f4f10203c3c38fe60302c08",
+        "00037e34000c04003c3c000bff73381c",
+        "00040f1fc903247c0438f06036bc1800",
+        "000417f7e7b710001838680818482c1c",
+        "00041b10b0572c7c383824ee4f281000",
+        "000606fcf8d2044400187903072d3930",
+        "0024110010f03010ff1a2e7e2e0f0c08",
+        "04043870bd73257f1008070f020c1a00",
+        "0480d08b82c28008203c2e747c3c3c14"
       ]
     },
     {
-      "id": 4,
-      "url": "shards/shard-000004.otbdag",
-      "bytes": 960280,
-      "sha256": "a47f5c23c7acde81fc12d5bc71ec6860340255dca21670f030a40a62546bdde5",
+      "id": 141,
+      "url": "shards/shard-000141.otbdag",
+      "bytes": 667752,
+      "sha256": "c15fde5b60874645dd750e59ad347837aea4e1d94162c429c059912181bf0d19",
       "roots": [
-        "00000209723a06023d3e7c760d051911",
-        "0000020a572600e080e4fcf4a8d8fc04",
-        "0000020bf35b3910103c7cf40c240625",
-        "0000020d00346c40202cfcf2ffca90b0",
-        "0000020f0b022e26323c3c7074fc1019",
-        "000002173f533c3c123c7ce8c0ac0000",
-        "0000021a2e1e400038387ce4d0e0bcf4",
-        "0000022d2070383e3038fcd0df8d0600",
-        "0000023e023d3c1e1c34fcc0fcc28000",
-        "00000246060c3c143d1f3d3979730100",
-        "000002472b7f20207c3c7c3854801c18",
-        "0000027f5050e000042c7c80acaf1cfc",
-        "000002bf0d3539290c1c3c40f24a0606",
-        "000002c29b9b8c3c04bc7c3c64643000",
-        "000002f6f3f03c7c203c7c080c0e0300",
-        "000003004c5c2c0038b8fcffb3a2c080"
+        "000000d76b333b00783c7f2814cc0400",
+        "00000306085038208088fcf9f7aec09c",
+        "000003f74de920fe0008fc0832161e00",
+        "000047475f132040383c3838206c1c1e",
+        "00007f2355db0424243c805c2a243818",
+        "000103051d3f3da40000fcfae2c0c040",
+        "00010309ebf3181c183c7cf6140c0400",
+        "00010309f7ff181c183c7cf608002000",
+        "000166d0f0303030283c182f0f8f0d08",
+        "0001734383132078383c0c3c3c2c1e00",
+        "0001e2fc52382c02792e1d030d070300",
+        "0002044078f7380c04bcbbbf06080422",
+        "0002060a530e1c1c3c3c7874acf0a000",
+        "00022438f078343e383c5b860e070800",
+        "0002c305371d19051f1d1cfa48c20000",
+        "0002e6c7be2020203c3c183840df8c00"
       ]
     },
     {
-      "id": 5,
-      "url": "shards/shard-000005.otbdag",
-      "bytes": 644232,
-      "sha256": "24b0ae057f94b43928d48b37cb49060c1c1743887ff2ec147040d9c0be99e0b3",
+      "id": 296,
+      "url": "shards/shard-000296.otbdag",
+      "bytes": 1049896,
+      "sha256": "51c4b0998e085407db45134490b6b5a30cf94bd35d998dc8c9af835079568887",
       "roots": [
-        "000003010143a47018b8fcfefe381800",
-        "00000301cdf3b9381038bc7e320c0402",
-        "000003025e1e1c1824b4fcfca1e0a020",
-        "000003030f5a203e0080fcfcf0a59e00",
-        "000003031f0e2c7c243cfc7c60f01000",
-        "00000304d8f8f0a07e3c7c7a27030000",
-        "00000306c6edb0780020fc7939120e06",
-        "0000030717327c7c2018fcf8a8cc0200",
-        "000003095f660c047d3e3c7620183028",
-        "0000030a0a132d7c181cbcf4f4ec1000",
-        "0000030b0b733828109cfcf4f40c0602",
-        "0000032a5f787030089cfcd4a0868c08",
-        "0000033f461f1e01003cfcc0b9e0a020",
-        "000003685c48f870042c7c96a3b60484",
-        "000003be071f03003c3cfc4078601c0c",
-        "000003bf121b1c183e3c3c40ad640204"
+        "000001c159c10d7c0414fe3e263e3000",
+        "000001f0c04f347e203cfc0e3f300800",
+        "0000030beb7d203f10343c7414021f00",
+        "00000a020b13247e1c3c747c74ec1800",
+        "00000a1018387c603c3df5ef66460000",
+        "00000b172e1e0c78103e74e8d0e07000",
+        "0000334bed7a3e3f30304cb412040000",
+        "0000397f3f1f247c3c3cc60000201800",
+        "0000510f1f5f247c3c3c2e3060201800",
+        "000083b3b5fa3cf0242c7c4c4800c000",
+        "0001274727043000183858b898f80c7e",
+        "0001820e05032544383c7c70fa7c1808",
+        "00018387b7fb14001c3c7c7808042220",
+        "000428e1e3870c047e39161e1c781000",
+        "00046a463f1f053d1038143840e03a02",
+        "00048090bbd0b81424387f6f442f0000"
       ]
     },
     {
-      "id": 6,
-      "url": "shards/shard-000006.otbdag",
-      "bytes": 675880,
-      "sha256": "7254ff25cc92e699b450558eb7c5136333fee06d71e04d701c4fbfbdc25fdc1f",
+      "id": 380,
+      "url": "shards/shard-000380.otbdag",
+      "bytes": 1176328,
+      "sha256": "f32485926ec7e06d86eefaa59beac0ac1392b0bd658d41e549df92a87abdb9cd",
       "roots": [
-        "000003d9c57741000014fc263a083c3e",
-        "000004001bd63c70783cfb7f64280000",
-        "000004007ae838081e3c79ff05170504",
-        "000004009a623070783cfaff641c0c04",
-        "00000402cf2260403c3c9b7d301c1c1e",
-        "0000040402c60e001e3c793b3d39313c",
-        "000004040c0c0e7e0004197bf3f3f181",
-        "00000407172378280898faf8e8dc0602",
-        "0000040ae40e3c3e001d3bf51b714100",
-        "00000426575c2c7e043cf8d8a8a31000",
-        "0000042a7c7a3c3c009dbbd583850000",
-        "00000440685e10003efcfbbe96a0c080",
-        "0000046c5a787c3c00a0f993a5878100",
-        "000004f2f6743024383dbb0d09890808",
-        "000004f2fa783824383dbb0d05850400",
-        "00000509114f5da43e3c3a762e302000"
+        "00044c040e0e143e1c0832faf1f0e800",
+        "00047f671707201008988098e8f81c0c",
+        "0004de3e36371800483820c0c8c8243e",
+        "000810ab44ec3c1c2434ee543b130200",
+        "00082c744a3c3c202835d28ab5c38100",
+        "00087af34a1a1a3f0416840c34e42400",
+        "0008e422353a30007c341bddca450c00",
+        "0008f0607854027f00040c1c07abfd80",
+        "0008f704cc4030107e34087b323e0c08",
+        "0008f8600010007f0000041cffefff80",
+        "0008fee418d8040e3e34001b26273800",
+        "000977678309240c1e3088183c361a10",
+        "00111bf560333838242c640a9c4c4404",
+        "00142850fdf08c083c28d62e020f3020",
+        "0014287fb32704803c28d4804cd8f000",
+        "003c1808102f78a800c0e7f6ef500004"
       ]
     },
     {
-      "id": 7,
-      "url": "shards/shard-000007.otbdag",
-      "bytes": 477016,
-      "sha256": "112e8b1c570f4b93be267f51a419bfe7b29a2cba218e4088f7db5437720c87ed",
+      "id": 495,
+      "url": "shards/shard-000495.otbdag",
+      "bytes": 431248,
+      "sha256": "6e21a5739c0eefe444520f4450a67f5796b70beba47a2c54f16014bb7dff2b43",
       "roots": [
-        "0000050a4020103efe7cf8743e1c2c00",
-        "0000050b073b3c3c0498f8f4f8c40200",
-        "0000050b0f3f3c3c0498faf4f0c00000",
-        "0000053e0d6830383e3cfac1f2160000",
-        "00000553e7f3b8000a1c382c180c047e",
-        "00000566570a1c18183cfa98a8f4a020",
-        "000006061bf70c08b87cf87864083030",
-        "00000606f77501041e3c78f8080a3c28",
-        "00000607201c3c1e083878f8dfe34080",
-        "0000060e3e583804088c78f0c0a6c7f0",
-        "0000060e3f3d1d141e3c78f0c0422020",
-        "0000061e267f00001c1c7861d8803c7e",
-        "0000070246e61010783cf8fcb8182c24",
-        "0000070a178c4c480cbcf8f468313030",
-        "0000075f7f3f10007cbcb8a080c00c00",
-        "00000767432f2424083cf898bcd09010"
+        "001c0fb7310121207c2070484e7e0c08",
+        "001c0fb7512121207c20f0482e1e0c08",
+        "001e2c00347e80207e2050ffc8003c14",
+        "0107f7ff33311b11281808000c0e0408",
+        "010b1103d7f71f0538140e3c28080008",
+        "0117f7f713110f03080808082c0e1038",
+        "013777f7771913030808080808060c0c"
+      ]
+    },
+    {
+      "id": 620,
+      "url": "shards/shard-000620.otbdag",
+      "bytes": 910744,
+      "sha256": "0604f74910946f1a3bc16031568e6b3152bd18140b73c901bdfc68cfa025fbec",
+      "roots": [
+        "000480012336343e10387ffe5cc80800",
+        "000482032530343e10387cfc5acf0800",
+        "0004c6d67a54804008193929052b3d30",
+        "0004cf070f0f13000020307870f06c7c",
+        "0004e041073e3c7e10381f3ef8400000",
+        "0004ec5606363e7f1c38122878480000",
+        "000503572b123c240018fca8d4ec4018",
+        "0008007b403c38107cb4fe84bec18000",
+        "00083e3f1eacc6fe000040c0e1523800",
+        "00083e6678787cfc1c30401906040203",
+        "00085cee777e1d003e75231108002000",
+        "0008702f4c2e1c081e348fd0b0d02014",
+        "0008d1c3afd030103c362e3c502c0408",
+        "0008f0eb93d1b91f00040c146c2e0600",
+        "0008fa766ede38303c36048890204040",
+        "0008fc20786b0603001000df8694b87c"
+      ]
+    },
+    {
+      "id": 688,
+      "url": "shards/shard-000688.otbdag",
+      "bytes": 1705880,
+      "sha256": "fc9ce245349419382a3b6e071c4f56cf1f3c76a1f9479ed9f847a32f45a104cc",
+      "roots": [
+        "00002446160c161338bcd8b8e8f0a820",
+        "00002618102070203c3cd8e4efde0c0c",
+        "00002e343874e07c0021d1cbc68a1e00",
+        "00002e662b067e3f1018111914f880c0",
+        "00002fcbc44030501010d0343b3f0f0e",
+        "000033ebd900387f00040c1426ff0700",
+        "00005767772311000e3c2818085c2c3c",
+        "00007d691f0f3170282c0296e0f00804",
+        "00007f26130204200cbc80d8ecfcb810",
+        "0000818185efbc28143c7c7e7a100000",
+        "0001057a6d2d01211e1c3a0512121e16",
+        "00011e7d01757b1f00000002fe8a84e0",
+        "00012f470727180010385038f858247e",
+        "00012fd70723180000085028f8dc267e",
+        "0001a3475b44247c143c5c38243a0900",
+        "00021427373b7c241838e8d848440218"
+      ]
+    },
+    {
+      "id": 723,
+      "url": "shards/shard-000723.otbdag",
+      "bytes": 647864,
+      "sha256": "8a166f7f63b5ea0f07632e5173ca4f5c649b5892b2628bb9cac5f36c3d727497",
+      "roots": [
+        "000023226a9c043e1c1c1c9c15637900",
+        "0000236b2c140c0c7d3e1c14136b3010",
+        "000027474f0321003c9cd8b8b0bc1804",
+        "00002a67e351207c043c54981c2e1e00",
+        "00002f63a9612520043c509c161e181e",
+        "00003161e34b24061e3c0e1e1cb41810",
+        "000032ee7afc3c7e203c0d1105010100",
+        "000043c24e8e262700323c3d31311918",
+        "00005b0f404cf878143820703f330484",
+        "0000674361750900081c18bc9e8a341e",
+        "00006b09070b01003c3c94f6f8f43010",
+        "00007160661c3c203cbc8c9f98e0c000",
+        "0001037f160e10003c3c3c0068712c7c",
+        "0001070b0dcf35340034787472304888",
+        "00010bbdc7bf3d24003cb44238404000",
+        "00017e64381c0c3c0080809bc7e3f100"
+      ]
+    },
+    {
+      "id": 837,
+      "url": "shards/shard-000837.otbdag",
+      "bytes": 1975280,
+      "sha256": "c7d2533195c300ada975c56bdb3a61fb46606b091c331cea429938ab0d2706aa",
+      "roots": [
+        "0012f8d8f4e4cefc000406240a1b3000",
+        "00141f0004ca313f002060bf7b344c80",
+        "00141f0702c8383f002060b87d364680",
+        "00141f0702cc183f002060b87d3264c0",
+        "002346dc0800203c041c3823773f1e01",
+        "002346fc0800203c041c3803377f1e01",
+        "010111f5eddd3e7c140e040a10204080",
+        "0101cd6d30311c141e7e32120f0a0020",
+        "014363d3d3cf0d0404341c2c2c302000",
+        "0182c7ebf3f39808004c38140c0c0404",
+        "022cf860001308fc0000061dfe6c3603",
+        "0400c8d4cf9cbc3e083e342830604000",
+        "080c4cce0f083c7e20303330f0f40000"
+      ]
+    },
+    {
+      "id": 880,
+      "url": "shards/shard-000880.otbdag",
+      "bytes": 1385144,
+      "sha256": "4a43f3f48fd2846b39788e8e9faf2f11ea6d08e730e62e30aa6aada27bb0a373",
+      "roots": [
+        "00210f1dbbdba1700012702244241c0c",
+        "00211f0df153277f0000a0720e2c1800",
+        "002153eb4238083c080c8c14bc473700",
+        "0021d38bcbcb1108001c2c7434342c04",
+        "00243738fc787efe0010080703070001",
+        "00243f00fc787efe0000007f03070001",
+        "0024d7b3070305040818284cf8fc3810",
+        "0025aac764500030101814389b2f7d08",
+        "0025ef4f4f8f0723001010303030181c",
+        "002c4ce9d16341001050b1162e9c2c24",
+        "0031ebd92b23202070081426d49c1c10",
+        "0031f8c8e5a004801c0c06371a1de840",
+        "0033461e18e820243c0c3861e6161c08",
+        "0039352fd749202038048a5028361e08",
+        "003f365c80040c043f0089233e3b3020",
+        "004161c590b2fc80003c9c3a6f4c0200"
+      ]
+    },
+    {
+      "id": 892,
+      "url": "shards/shard-000892.otbdag",
+      "bytes": 1004952,
+      "sha256": "e2f30451c011cd8329fbeaf8284c377e16c0a9dac2085236fb3456bcc70bc476",
+      "roots": [
+        "00044609596f4e870838383626103038",
+        "0004a8102277371d100a17efdd080800",
+        "0006207c2c07090020185f825378347e",
+        "0006ac402c170900101813be5368347e",
+        "00080010226fc8001030feecdc9034fc",
+        "0008004e561930303cb4f8b0a8e48c0c",
+        "0008174adc5c1cfc2014283422232303",
+        "00081c7e7f0340fe0000030100fcbf01",
+        "00082f0fcf071f091317d07030380000",
+        "00083437a0c0b43e0e1488485f3e0900",
+        "00084ec71b1d1d1900203038e4e22226",
+        "000854467c1c1c00bed4a8b882e2a020",
+        "000870724b7a783f20300c0cb48484c0",
+        "0008ce201a0c1c207c35315fe5730000",
+        "0008e7fb604080207c3418041e3d1c14",
+        "0008fef69a0028103e300008647e942c"
+      ]
+    },
+    {
+      "id": 910,
+      "url": "shards/shard-000910.otbdag",
+      "bytes": 538952,
+      "sha256": "6691173af89aa044ece9071678d4e4b932b48595eec520c346c7a9003935b464",
+      "roots": [
+        "041c78f429703c7e0023070a160f0000",
+        "041c9f1725991010002060e8da666c04",
+        "0420133fcd43050c2818ac40323c3830",
+        "042030f9f9cc9c24209c4f0606330000",
+        "042030f9f9cc9c2428984f0606330000",
+        "042040abe3662414081cbf541c981808",
+        "042060df290c9c24291a1f2056f30000",
+        "0420d1f3c5a83c10701c2c0c3a570000",
+        "0420d2b7f4e00408101c2c480b1f3830",
+        "04240e8e0d16227f1018f07030e81c00",
+        "0424327d8d0f032018180c0272f03c0c",
+        "0430f0dfb6bd1ca0080c0f2048406040",
+        "0438122b56eaf0980000ecd4a8140e04",
+        "04391135ef173f3100026e4a10284000",
+        "043c3d26bcc4e4fe7000009840381800",
+        "043d2340b810383000805c3e47ef0504"
+      ]
+    },
+    {
+      "id": 957,
+      "url": "shards/shard-000957.otbdag",
+      "bytes": 1000104,
+      "sha256": "1880f92fb912a03089330b69ef9c3e2a812318f7e0ad4d4c2b41b7680607eb75",
+      "roots": [
+        "0001c345cb570800483c3cba34283430",
+        "0001f3ef5f3c5cfc080c0c10a0402000",
+        "0001ff452a4608083e3c003a54b83402",
+        "00020008046e3c7c3c1cfef6fa100000",
+        "00020038327c1c780008bfc7cd83a180",
+        "000200c85874a87c783c7f3626091000",
+        "0002040804603c7c3c1cfaf4fa1f0000",
+        "0002064b170725100095f8b4e8f89808",
+        "000206bf422604047c3cf8403c58b820",
+        "000206bf4a6602017c3cf84034183c20",
+        "000206ff4e2602017c3cf8003058bc00",
+        "00020cd87070a87c7c3c70260e0e1200",
+        "00020f8a96ea001e1c3c303469143e00",
+        "00021af6c2cb9800000505093c34667e",
+        "00022428f06c301e142c5b170f130d40",
+        "00022468301c381e1c3c5b170f630500"
+      ]
+    },
+    {
+      "id": 1026,
+      "url": "shards/shard-001026.otbdag",
+      "bytes": 562408,
+      "sha256": "52a1c731496faa1673c5a986915832ba95c4f94dda167bcb0b644e85e735b65a",
+      "roots": [
+        "00000001460e10207cbcfcfcb8f0ac08",
+        "0000001912b71c78243cff66ec482000",
+        "0000007b140e0c0008bcfe84e8f0b07c",
+        "0000012115013c7c00a0fcdeeafe8200",
+        "0000013f03374c800000fec0fcc8303f",
+        "000001ff73354c800000fe000cca313f",
+        "000003051d71387c0080bcfae28e8602",
+        "000003365ffe303e083cfc49a0000c00",
+        "000003365ffe303e203cfc49a0000c00",
+        "0000043a542c18103c3dfbc5abd18000",
+        "00000647000408000ebcf8b8fcf8b07c",
+        "000006e666667eff081c781819180000",
+        "000007274dfb3d0c0c3e7858b2040000",
+        "0000074e2e1f2e7f043cf83050601000",
+        "00000767231f2e7f0038f8185c601000",
+        "0000078b15a9512008187834ea562e1c"
+      ]
+    },
+    {
+      "id": 1123,
+      "url": "shards/shard-001123.otbdag",
+      "bytes": 1412584,
+      "sha256": "141efcd852b82440883481d1ee617efb2a5c32cf4c6ccbc97c625ad5c5d05acf",
+      "roots": [
+        "00000312b4ce9600283c7c6c4a30287c",
+        "000003ffed1f3c3e203c7c0012204000",
+        "0000045b2c7c780038b8faa4d3830408",
+        "000004c4ea757c7c00dcf93a15880000",
+        "0000051a566240003c38fae4a89c3c34",
+        "0000076e463d387c161cf890b8c08000",
+        "00000ece1c08103c7c3cf030e0f460c0",
+        "00000ed60818303c7c3cf028f4e24480",
+        "00001c0e462e18000024e0f1b9d1a57d",
+        "00002afb7bf5feff00040404040a0100",
+        "00002c66c3060600483c13193cf8387c",
+        "00002df77bfdfeff0000100804020100",
+        "00002dfd7dfdfeff0000020202020100",
+        "0000424616191808b47cbcb8e8e42424",
+        "0000424b8333ccfc00141c347ccc3201",
+        "0000424b8533cffc00141c347acc3000"
+      ]
+    },
+    {
+      "id": 1130,
+      "url": "shards/shard-001130.otbdag",
+      "bytes": 2567192,
+      "sha256": "da5c7a5048ac4ed7553eaf38be7bddcb650fb3a3b5fa533a28210d1d8c8fd65b",
+      "roots": [
+        "0000030b192b797e3c3c3c3426140400",
+        "0000068e5e3e5cfa08f8f87020c02000",
+        "000007d3277f09007c3c782cd8800404",
+        "00000d854bef20047c3c327a34101c10",
+        "00000f0b190b797e3c38303426740400",
+        "000014000b173c7c381c6b7f74e80000",
+        "0000140800377c7c381c6a777fc80000",
+        "0000170307123c7c381c687c78ec0200",
+        "00002c2e5e723c3c143c53d0a08d8000",
+        "00003c1f23069af8000040e05cf96507",
+        "00003c1f23069af8000040e0dcf92507",
+        "000042254b051d0e081ebcd8b4fa8020",
+        "00006fcb2830207c0438103457cf1e00",
+        "00007e260a1c0c08053f81d9f5632100",
+        "0001013f49ef17000404fe403610287c",
+        "0001017f29df0f0004047e805620307c"
+      ]
+    },
+    {
+      "id": 1143,
+      "url": "shards/shard-001143.otbdag",
+      "bytes": 328184,
+      "sha256": "44e7d6345fbd26379c3d06fb1d44d3a6a9e5abbeba97cd613f8b88de2b812da6",
+      "roots": [
+        "04000161e16164be303c7c1e1e181800",
+        "04000301a1593c3e303c7cfe1e204000",
+        "04000365e17174a2303c7c1a1e0c0808",
+        "04000365e17964a2303c7c1a1e041018",
+        "040443d70f1d0d09713a3c28f0600000",
+        "040443df0f1d0d09713a3c20f0600000",
+        "0604b901a1492422303844fe5e305018",
+        "0604f971e16124223038040e1e185818",
+        "0604f971e16124223038040e1e1c5018",
+        "060503179706141070387ce868f80800",
+        "0800e0aba6cea83050301f545830140c",
+        "08090f4ecc0f033f1030703030b03c00",
+        "080d3fa7878f153c0080405878700800",
+        "080d3fe7c78f053c0080401838303800",
+        "080d7bff4f37317c0002040030080c02",
+        "0821f1fdf8f83c7e001c0c0204060000"
+      ]
+    },
+    {
+      "id": 1164,
+      "url": "shards/shard-001164.otbdag",
+      "bytes": 900712,
+      "sha256": "3d83a4a1f3856107fbd8e51a6767023e11e216dbcc9b7658fa0c29041b37317b",
+      "roots": [
+        "0000065aec40607f000078a5133f1f80",
+        "00000b5e263a3c043e3c742059840270",
+        "00000c0e3e787cbc0488f3f0c0870200",
+        "000017725020341c383ce88daedc8800",
+        "0000181c3e7a7cbc0c98e7e0c0840200",
+        "0000181c3e7a7cbc10b8e7e0c0840200",
+        "00001f765020341c383ce089acde8800",
+        "000023eb540c7cf87e2c1c14a8700000",
+        "00005ff9fd0301001030200602fc3c3e",
+        "0000631317070600243c1c2ce878383e",
+        "00007377070706012c2e0c083838387c",
+        "0000a70b142c7cf81e3c58f4e8100000",
+        "0000cfc620303e1f787c30381d0e0000",
+        "0000cfc62230381f787c30381d0e0400",
+        "0000cfe644b0381f787c3018390c0400",
+        "0000e74b102c7cf81e3c1834ee100000"
       ]
     }
   ]

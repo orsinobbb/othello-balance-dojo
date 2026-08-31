@@ -9,7 +9,7 @@
     "test": "node --test",
     "audit:data": "node tools/audit-demo-data.mjs",
     "audit:theory": "node tools/audit-theory.mjs",
-    "build:release100": "node tools/build-release.mjs --source ../../data/e20-balanced/v1 --lessons 100"
+    "build:release100": "node tools/build-curriculum-release.mjs --source ../../data/e20-balanced/v1 --lessons 100 --max-shards 20"
   },
   "engines": {
     "node": ">=20"

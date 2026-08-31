@@ -2,15 +2,25 @@ import { PASS_MOVE, popcount, squareName } from './core/bitboard.js';
 import { ExactTeachingSession } from './core/session.js';
 import { inverseSymmetry, transformSquare } from './core/symmetry.js';
 import { analyzeTurn } from './core/teaching.js';
+import { createLearningEvent, LearningEventType, MasteryState, projectLearningState } from './core/learning-model.js';
+import { buildDailyPlan, lessonConcepts } from './curriculum/adaptive-selector.js';
 import { ShardRepository } from './data/shard-repository.js';
 import { isLessonAvailable, isLessonCompleted, loadCurriculum, recordLessonSuccess } from './storage/curriculum-store.js';
 import { ProgressStore } from './storage/progress-store.js';
+import { runtimeConfig } from './config/runtime-config.js';
+import { createAuthProvider } from './auth/auth-provider.js';
+import { SupabaseEventSyncAdapter, SyncEngine } from './sync/sync-engine.js';
 
 const elements = Object.fromEntries([
   'board', 'turn', 'position-meta', 'black-count', 'white-count', 'empty-count',
   'lesson-step', 'lesson-title', 'lesson-body', 'analysis-next', 'reveal', 'retry',
   'next', 'replay', 'history', 'evidence', 'fatal', 'root-select', 'question-progress', 'last-result',
-  'failure-dialog', 'failure-dialog-title', 'failure-dialog-body', 'failure-dialog-close', 'failure-dialog-retry'
+  'failure-dialog', 'failure-dialog-title', 'failure-dialog-body', 'failure-dialog-close', 'failure-dialog-retry',
+  'sync-pill', 'today-greeting', 'today-count', 'due-count', 'active-days', 'daily-plan', 'start-daily',
+  'course-progress', 'concept-map', 'continue-course', 'stat-completed', 'stat-accuracy', 'stat-independent',
+  'mastery-list', 'recent-activity', 'profile-name', 'profile-experience', 'profile-minutes', 'save-profile',
+  'identity-title', 'identity-detail', 'auth-action', 'sync-action', 'sync-status', 'export-data',
+  'onboarding-dialog', 'onboarding-experience', 'onboarding-minutes', 'onboarding-start'
 ].map((id) => [id, document.getElementById(id)]));
 
 const repository = new ShardRepository();
@@ -25,6 +35,230 @@ let lessonStage = 0;
 let lastSnapshot = null;
 let lastResult = '';
 let loadRequest = 0;
+let profile;
+let projection = projectLearningState([]);
+let learningEvents = [];
+let dailyPlan = [];
+let authProvider;
+let syncEngine;
+let identity;
+let sessionId = null;
+let nodeStartedAt = performance.now();
+const appConfig = runtimeConfig();
+
+const CONCEPT_LABELS = Object.freeze({
+  'take-corner': '取得角落',
+  'deny-corner': '避免立即送角',
+  'forced-pass': '逼迫對手停著',
+  'shared-singleton': '共用孤立單格',
+  'empty-c-risk': '空角旁 C 格風險',
+  'opponent-mobility': '壓縮對手行動力',
+  'reply-resilience': '承受對手最佳回應',
+  'avoid-reply-pass': '避免被對手反逼停',
+  'frontier-discipline': '減少新增前沿子',
+  'empty-x-risk': '空角旁 X 格風險',
+  'potential-mobility': '潛在行動力',
+  'anchored-edge': '增加角落錨定邊線',
+  'odd-region': '優先奇數空區',
+  'preserve-large-region': '保留大空區',
+  'flip-economy': '少翻子保留彈性',
+  'corner': '角落策略',
+  'mobility': '行動力控制',
+  'stability': '穩定子與邊線',
+  'parity': '空區奇偶',
+  'frontier': '前沿子管理',
+  'region-parity': '區域奇偶',
+  'corner-access': '角落控制',
+  'frontier-discs': '前線棋控制',
+  'edge-stability': '邊線穩定度',
+  'tempo': '手數／節奏'
+});
+
+function conceptLabel(id) {
+  const clean = String(id || '').replace(/^family:/, '');
+  return CONCEPT_LABELS[clean] || clean.replaceAll('-', ' ');
+}
+
+function switchView(view, { updateHash = true } = {}) {
+  const target = document.querySelector(`[data-view="${view}"]`) ? view : 'today';
+  document.querySelectorAll('[data-view]').forEach((section) => { section.hidden = section.dataset.view !== target; });
+  document.querySelectorAll('[data-view-target]').forEach((button) => button.classList.toggle('active', button.dataset.viewTarget === target));
+  if (updateHash && location.hash !== `#${target}`) history.replaceState(null, '', `#${target}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function recordEvent(eventType, fields = {}, { refresh = true, queue = true } = {}) {
+  if (!profile) return null;
+  const clientSeq = await progressStore.nextClientSeq();
+  profile.clientSeq = clientSeq;
+  const lesson = release?.lessons?.[rootIndex];
+  const event = createLearningEvent({
+    eventType,
+    profileId: profile.id,
+    deviceId: profile.installationId,
+    sessionId,
+    clientSeq,
+    datasetId: release?.datasetId,
+    lessonId: lesson?.id,
+    positionId: fields.positionId || session?.nodeId?.toString?.() || null,
+    conceptTags: lesson ? lessonConcepts(lesson) : [],
+    ...fields
+  });
+  await progressStore.appendEvent(event, { queue });
+  if (refresh) await refreshLearningState();
+  return event;
+}
+
+async function refreshLearningState() {
+  learningEvents = await progressStore.listEvents();
+  projection = projectLearningState(learningEvents);
+  await progressStore.saveProjection(projection);
+  if (release) renderLearningShell();
+}
+
+function masteryText(state) {
+  return ({
+    [MasteryState.LEARNING]: '學習中',
+    [MasteryState.RECOGNISABLE]: '可辨識',
+    [MasteryState.STABLE]: '穩定',
+    [MasteryState.TRANSFER_READY]: '可遷移'
+  })[state] || '尚未練習';
+}
+
+function createLessonTile(item) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'lesson-tile';
+  const tag = document.createElement('small');
+  tag.className = 'reason-tag';
+  tag.textContent = item.reason;
+  const title = document.createElement('span');
+  title.textContent = `第 ${String(item.index + 1).padStart(3, '0')} 題 · ${item.lesson.title || '平衡判斷'}`;
+  const detail = document.createElement('small');
+  const p = item.lesson.pedagogy || {};
+  detail.textContent = `${difficultyLabel(p.difficulty)} · ${p.legalMoveCount || '—'} 選 ${p.balancedMoveCount || '—'} · ${conceptLabel(p.primaryTheoryId)}`;
+  button.append(tag, title, detail);
+  button.addEventListener('click', () => {
+    switchView('practice');
+    startRoot(item.index).catch(showFatal);
+  });
+  return button;
+}
+
+function renderDailyPlan() {
+  const size = Math.max(3, Math.min(10, Math.ceil(Number(profile?.dailyMinutes || 10) / 2)));
+  dailyPlan = buildDailyPlan(release.lessons, projection, { size });
+  elements['daily-plan'].replaceChildren(...dailyPlan.map(createLessonTile));
+  elements['today-count'].textContent = dailyPlan.length;
+  elements['due-count'].textContent = projection.dueReviews.length;
+  elements['active-days'].textContent = projection.totals.activeDays;
+  elements['today-greeting'].textContent = profile?.displayName
+    ? `${profile.displayName}，今天從最值得複習的決策開始`
+    : '今天從最值得複習的決策開始';
+}
+
+function renderCourse() {
+  const completed = projection.completedLessons.length || curriculum.completedCount;
+  elements['course-progress'].textContent = `${completed}/${release.lessonCount} 題`;
+  const counts = new Map();
+  for (const lesson of release.lessons) {
+    for (const concept of lessonConcepts(lesson)) counts.set(concept, (counts.get(concept) || 0) + 1);
+  }
+  const mastered = new Map(projection.mastery.map((row) => [row.conceptId, row]));
+  const concepts = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 9);
+  elements['concept-map'].replaceChildren(...concepts.map(([conceptId, count]) => {
+    const card = document.createElement('article');
+    card.className = 'concept-card';
+    const title = document.createElement('strong');
+    title.textContent = conceptLabel(conceptId);
+    const detail = document.createElement('span');
+    detail.textContent = `${count} 題 · ${masteryText(mastered.get(conceptId)?.state)}`;
+    card.append(title, detail);
+    return card;
+  }));
+}
+
+function renderProgressDashboard() {
+  const totals = projection.totals;
+  const accuracy = totals.attempts ? Math.round(totals.valuePreserving / totals.attempts * 100) : null;
+  const independent = learningEvents.filter((event) => event.eventType === LearningEventType.MOVE_ATTEMPTED && event.hintLevel === 0).length;
+  elements['stat-completed'].textContent = projection.completedLessons.length || curriculum.completedCount;
+  elements['stat-accuracy'].textContent = accuracy === null ? '—' : `${accuracy}%`;
+  elements['stat-independent'].textContent = independent;
+
+  if (!projection.mastery.length) {
+    elements['mastery-list'].replaceChildren();
+    addParagraph(elements['mastery-list'], '完成練習後，這裡會用答題、提示程度與跨題成功來呈現熟練度。');
+  } else {
+    elements['mastery-list'].replaceChildren(...projection.mastery.slice(0, 12).map((record) => {
+      const row = document.createElement('div');
+      row.className = 'mastery-row';
+      const label = document.createElement('b');
+      label.textContent = conceptLabel(record.conceptId);
+      const track = document.createElement('span');
+      track.className = 'mastery-track';
+      const fill = document.createElement('i');
+      fill.style.width = `${Math.round(record.score * 100)}%`;
+      track.append(fill);
+      const state = document.createElement('small');
+      state.textContent = masteryText(record.state);
+      row.append(label, track, state);
+      return row;
+    }));
+  }
+
+  const recent = learningEvents.filter((event) => [LearningEventType.MOVE_ATTEMPTED, LearningEventType.LESSON_COMPLETED].includes(event.eventType)).slice(-8).reverse();
+  if (!recent.length) {
+    elements['recent-activity'].replaceChildren();
+    addParagraph(elements['recent-activity'], '尚無紀錄。');
+  } else {
+    elements['recent-activity'].replaceChildren(...recent.map((event) => {
+      const row = document.createElement('div');
+      row.className = 'activity-row';
+      const text = document.createElement('span');
+      text.textContent = event.eventType === LearningEventType.LESSON_COMPLETED
+        ? `完成 ${event.lessonId}`
+        : `${event.side || '本手'} ${event.move || ''} · ${event.outcome === 'value_preserving' ? '維持平衡' : '失去平衡'}`;
+      const time = document.createElement('small');
+      time.textContent = new Intl.DateTimeFormat('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(event.occurredAt));
+      row.append(text, time);
+      return row;
+    }));
+  }
+}
+
+async function renderAccountStatus() {
+  if (!authProvider || !syncEngine) return;
+  identity = await authProvider.getIdentity();
+  const status = await syncEngine.status();
+  elements['identity-title'].textContent = identity.authenticated ? identity.displayName : '目前使用本機模式';
+  elements['identity-detail'].textContent = identity.authenticated
+    ? `${identity.email || 'Google 帳號'} · 可跨裝置同步學習事件`
+    : '不登入也能完整練習，資料只留在這個瀏覽器。';
+  elements['auth-action'].disabled = authProvider.kind !== 'supabase';
+  elements['auth-action'].textContent = authProvider.kind !== 'supabase'
+    ? 'Google 登入尚未設定'
+    : identity.authenticated ? '登出 Google 帳號' : '使用 Google 登入';
+  elements['sync-action'].disabled = !identity.authenticated;
+  elements['sync-pill'].textContent = identity.authenticated ? `雲端同步 · 待傳 ${status.pending}` : `本機保存 · ${status.pending} 筆事件`;
+  elements['sync-status'].textContent = identity.authenticated
+    ? (status.remote?.syncedAt ? `上次同步：${new Date(status.remote.syncedAt).toLocaleString('zh-TW')}` : '已登入，尚未首次同步。')
+    : '登入前的紀錄保留在本機；登入後可安全合併。';
+}
+
+function renderLearningShell() {
+  renderDailyPlan();
+  renderCourse();
+  renderProgressDashboard();
+  if (profile) {
+    elements['profile-name'].value = profile.displayName || '';
+    elements['profile-experience'].value = profile.experience || 'new';
+    elements['profile-minutes'].value = String(profile.dailyMinutes || 10);
+  }
+  renderAccountStatus().catch((error) => {
+    elements['sync-status'].textContent = `同步狀態讀取失敗：${error.message}`;
+  });
+}
 
 function occupiedColor(displaySquare) {
   const canonicalSquare = transformSquare(displaySquare, inverseSymmetry(session.orientation));
@@ -56,11 +290,15 @@ function names(facts) {
   return facts.map((fact) => fact.name).join('、') || '沒有';
 }
 
+function difficultyLabel(value) {
+  return ({ foundation: '基礎', intermediate: '中階', advanced: '高階' })[value] || '未分級';
+}
+
 function theoryReasons(fact, limit = 2) {
   return fact.theorySignals
     .filter((signal) => signal.contribution > 0)
     .slice(0, limit)
-    .map((signal) => signal.observation)
+    .map((signal) => signal.observation.replace(/[。！？；]+$/u, ''))
     .join('；');
 }
 
@@ -113,6 +351,16 @@ function renderExactTable(analysis, parent) {
 function renderLesson(analysis) {
   const body = elements['lesson-body'];
   body.replaceChildren();
+  const lesson = release.lessons[rootIndex];
+  const pedagogy = lesson.pedagogy;
+  if (pedagogy && session.nodeId === session.rootId && session.phase === 'playing') {
+    const proofMode = pedagogy.calculationRequired ? '棋理首選會失誤，必須精算' : '棋理首選獲精算支持';
+    addParagraph(
+      body,
+      `本題標籤：${difficultyLabel(pedagogy.difficulty)} · ${pedagogy.legalMoveCount} 個合法手 · ${pedagogy.balancedMoveCount} 個平衡解 · ${proofMode}。`,
+      pedagogy.calculationRequired ? 'warning-note' : 'takeaway'
+    );
+  }
 
   if (session.phase === 'terminal') {
     elements['lesson-step'].textContent = '終局驗證';
@@ -206,7 +454,7 @@ function renderBoard(analysis) {
       if (candidates.has(square)) button.classList.add('candidate');
       if (tempos.has(square)) button.classList.add('tempo');
       if (balanced.has(square)) button.classList.add('hint');
-      button.addEventListener('click', () => play(square));
+      button.addEventListener('click', () => play(square).catch(showFatal));
     }
     if (session.lastFailure?.displaySquare === square) button.classList.add('failed');
     elements.board.append(button);
@@ -271,14 +519,33 @@ async function finish() {
   populateRootSelect();
   lastResult = `終局確認：黑 ${elements['black-count'].textContent}、白 ${elements['white-count'].textContent}，結果和局。`;
   render();
-  try { await progressStore.saveSession(lastSnapshot); } catch (error) { console.warn('Progress save failed', error); }
+  try {
+    await progressStore.saveSession(lastSnapshot);
+    await recordEvent(LearningEventType.LESSON_COMPLETED, { details: { moves: lastSnapshot.history.length } });
+  } catch (error) { console.warn('Progress save failed', error); }
 }
 
-function play(square) {
+async function play(square) {
   const before = analyzeTurn(session);
   const fact = before.facts.find((candidate) => candidate.displaySquare === square);
   const movingColor = before.color;
+  const attemptedNode = session.nodeId;
+  const elapsed = Math.round(performance.now() - nodeStartedAt);
   const result = session.playStudentMove(square);
+  if (fact) {
+    await recordEvent(LearningEventType.MOVE_ATTEMPTED, {
+      positionId: String(attemptedNode),
+      nodeId: attemptedNode,
+      side: movingColor,
+      move: fact.name,
+      outcome: result.reason === 'failure' ? 'failure' : 'value_preserving',
+      hintLevel: lessonStage,
+      latencyMs: elapsed,
+      criticality: before.balanced.length === 1 ? 1.5 : 1,
+      transfer: Boolean(projection.completedLessons.find((item) => item.lessonId === release.lessons[rootIndex].id)),
+      details: { legalMoveCount: before.legalCount, balancedMoveCount: before.balanced.length }
+    });
+  }
   if (result.reason === 'failure') {
     lessonStage = 3;
     lastResult = `${movingColor} ${fact?.name || squareName(square)}：完整搜尋判定必敗，盤面保留供你比較。`;
@@ -289,6 +556,7 @@ function play(square) {
   if (!result.accepted) return;
   lastResult = `${movingColor} ${fact.name}：維持和局；翻 ${fact.flips} 子，下一方原有 ${fact.opponentMobility} 個合法選擇。`;
   lessonStage = 0;
+  nodeStartedAt = performance.now();
   if (session.phase === 'terminal') {
     finish();
     return;
@@ -299,7 +567,7 @@ function play(square) {
 async function startRoot(index) {
   closeFailureDialog();
   const requested = Math.max(0, Math.min(release.lessonCount - 1, Number(index) || 0));
-  const selected = isLessonAvailable(curriculum, requested) ? requested : curriculum.unlockedThrough;
+  const selected = requested;
   const request = ++loadRequest;
   elements['root-select'].disabled = true;
   elements.evidence.textContent = `正在載入第 ${String(selected + 1).padStart(3, '0')} 題所需分片…`;
@@ -310,12 +578,15 @@ async function startRoot(index) {
   localStorage.setItem('balance-dojo-root', String(rootIndex));
   elements['root-select'].value = String(rootIndex);
   session = new ExactTeachingSession(dag, dag.root(release.lessons[rootIndex].rootIndex), { control: 'both' });
+  sessionId = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${rootIndex}`;
   lastSnapshot = null;
   lastResult = '';
   lessonStage = 0;
+  nodeStartedAt = performance.now();
   elements.evidence.textContent = `✓ SHA-256 已驗證 · ${release.lessonCount} 題 · 已載入 ${repository.loadedShardCount(release)}/${release.shards.length} 分片（${(repository.loadedBytes(release) / 1048576).toFixed(1)} MB）`;
   populateRootSelect();
   render();
+  await recordEvent(LearningEventType.LESSON_STARTED, { nodeId: session.nodeId, hintLevel: 0 });
 }
 
 async function replay() {
@@ -342,8 +613,13 @@ async function replay() {
 elements['analysis-next'].addEventListener('click', () => {
   lessonStage = lessonStage === 3 ? 0 : lessonStage + 1;
   render();
+  if (lessonStage > 0) recordEvent(LearningEventType.HINT_USED, { nodeId: session.nodeId, hintLevel: lessonStage }).catch(console.warn);
 });
-elements.reveal.addEventListener('click', () => { lessonStage = 3; render(); });
+elements.reveal.addEventListener('click', () => {
+  lessonStage = 3;
+  render();
+  recordEvent(LearningEventType.HINT_USED, { nodeId: session.nodeId, hintLevel: 3, details: { directReveal: true } }).catch(console.warn);
+});
 function retryFailure() {
   closeFailureDialog();
   session.retry();
@@ -357,6 +633,75 @@ elements['failure-dialog-close'].addEventListener('click', closeFailureDialog);
 elements.next.addEventListener('click', () => startRoot(rootIndex + 1).catch(showFatal));
 elements.replay.addEventListener('click', () => replay().catch(showFatal));
 elements['root-select'].addEventListener('change', () => startRoot(Number(elements['root-select'].value)).catch(showFatal));
+document.querySelectorAll('[data-view-target]').forEach((button) => {
+  button.addEventListener('click', () => switchView(button.dataset.viewTarget));
+});
+window.addEventListener('hashchange', () => switchView(location.hash.slice(1), { updateHash: false }));
+
+elements['start-daily'].addEventListener('click', () => {
+  const first = dailyPlan[0];
+  if (!first) return;
+  switchView('practice');
+  startRoot(first.index).catch(showFatal);
+});
+elements['continue-course'].addEventListener('click', () => {
+  switchView('practice');
+  startRoot(curriculum.unlockedThrough).catch(showFatal);
+});
+elements['save-profile'].addEventListener('click', async () => {
+  profile = await progressStore.updateProfile({
+    displayName: elements['profile-name'].value.trim(),
+    experience: elements['profile-experience'].value,
+    dailyMinutes: Number(elements['profile-minutes'].value)
+  });
+  renderLearningShell();
+  elements['sync-status'].textContent = '設定已儲存在此裝置。';
+});
+elements['onboarding-start'].addEventListener('click', async () => {
+  profile = await progressStore.updateProfile({
+    experience: elements['onboarding-experience'].value,
+    dailyMinutes: Number(elements['onboarding-minutes'].value),
+    onboardedAt: new Date().toISOString()
+  });
+  elements['onboarding-dialog'].close();
+  renderLearningShell();
+});
+elements['auth-action'].addEventListener('click', async () => {
+  if (!authProvider || authProvider.kind !== 'supabase') return;
+  elements['auth-action'].disabled = true;
+  try {
+    identity = await authProvider.getIdentity();
+    if (identity.authenticated) await authProvider.signOut();
+    else await authProvider.signIn();
+    await renderAccountStatus();
+  } catch (error) {
+    elements['sync-status'].textContent = `登入作業失敗：${error.message}`;
+  } finally {
+    elements['auth-action'].disabled = false;
+  }
+});
+elements['sync-action'].addEventListener('click', async () => {
+  elements['sync-action'].disabled = true;
+  elements['sync-status'].textContent = '正在合併學習事件…';
+  try {
+    await syncEngine.run();
+    await refreshLearningState();
+    elements['sync-status'].textContent = '同步完成，本機與雲端事件已合併。';
+  } catch (error) {
+    elements['sync-status'].textContent = `同步失敗，本機紀錄不受影響：${error.message}`;
+  } finally {
+    await renderAccountStatus();
+  }
+});
+elements['export-data'].addEventListener('click', async () => {
+  const data = await progressStore.exportData();
+  const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `othello-learning-${new Date().toISOString().slice(0, 10)}.json`;
+  link.click();
+  URL.revokeObjectURL(url);
+});
 
 function showFatal(error) {
   console.error(error);
@@ -370,12 +715,13 @@ function populateRootSelect() {
   for (let index = 0; index < release.lessonCount; index += 1) {
     const option = document.createElement('option');
     option.value = String(index);
-    const title = release.lessons[index].title ? ` · ${release.lessons[index].title}` : '';
+    const lesson = release.lessons[index];
+    const level = lesson.pedagogy ? ` · ${difficultyLabel(lesson.pedagogy.difficulty)}` : '';
+    const title = lesson.title ? ` · ${lesson.title}` : '';
     const status = isLessonCompleted(curriculum, index)
       ? ' · ✓ 已完成'
-      : index === curriculum.unlockedThrough ? ' · 目前關卡' : ' · 🔒 未解鎖';
-    option.textContent = `第 ${String(index + 1).padStart(3, '0')} 題${title}${status}`;
-    option.disabled = !isLessonAvailable(curriculum, index);
+      : index === curriculum.unlockedThrough ? ' · 引導下一關' : ' · 自由練習';
+    option.textContent = `第 ${String(index + 1).padStart(3, '0')} 題${level}${title}${status}`;
     elements['root-select'].append(option);
   }
   elements['root-select'].value = String(rootIndex);
@@ -385,12 +731,48 @@ function populateRootSelect() {
     : `已完成 ${curriculum.completedCount}/${release.lessonCount} · 下一關：第 ${String(curriculum.unlockedThrough + 1).padStart(3, '0')} 題`;
 }
 
+async function migrateLegacyCurriculum() {
+  if (await progressStore.getSyncState('legacyCurriculumMigrated', false)) return;
+  const alreadyCompleted = new Set(learningEvents.filter((event) => event.eventType === LearningEventType.LESSON_COMPLETED).map((event) => event.lessonId));
+  const records = Object.entries(curriculum.completed).filter(([lessonId]) => !alreadyCompleted.has(lessonId));
+  if (records.length) {
+    let sequence = Number(profile.clientSeq || 0);
+    const migrated = records.map(([lessonId, record]) => createLearningEvent({
+      eventType: LearningEventType.LESSON_COMPLETED,
+      profileId: profile.id,
+      deviceId: profile.installationId,
+      clientSeq: ++sequence,
+      occurredAt: record.lastCompletedAt || record.firstCompletedAt || new Date().toISOString(),
+      datasetId: release.datasetId,
+      lessonId,
+      details: { moves: record.moves || 0, migratedFrom: 'curriculum-v2' }
+    }));
+    await progressStore.appendEvents(migrated);
+    profile = await progressStore.updateProfile({ clientSeq: sequence });
+  }
+  await progressStore.setSyncState('legacyCurriculumMigrated', true);
+}
+
 async function main() {
+  profile = await progressStore.initialize();
   release = await repository.loadRelease('./data/release-manifest.json');
   curriculum = loadCurriculum(localStorage, release.lessons);
-  if (!isLessonAvailable(curriculum, rootIndex)) rootIndex = curriculum.unlockedThrough;
+  learningEvents = await progressStore.listEvents();
+  await migrateLegacyCurriculum();
+  await refreshLearningState();
+  authProvider = createAuthProvider(appConfig, profile);
+  syncEngine = new SyncEngine({
+    store: progressStore,
+    authProvider,
+    adapter: authProvider.kind === 'supabase' && appConfig.sync.enabled ? new SupabaseEventSyncAdapter(authProvider) : null,
+    onEventsChanged: refreshLearningState
+  });
+  await authProvider.subscribe(() => renderAccountStatus().catch(console.warn));
   populateRootSelect();
   await startRoot(Number.isFinite(rootIndex) ? rootIndex : 0);
+  switchView(location.hash.slice(1) || 'today', { updateHash: false });
+  renderLearningShell();
+  if (!profile.onboardedAt && typeof elements['onboarding-dialog'].showModal === 'function') elements['onboarding-dialog'].showModal();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(console.warn);
 }
 

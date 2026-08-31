@@ -22,12 +22,17 @@ test('lesson catalog loads shards only when a lesson needs them', async () => {
   assert.equal(repository.loadedShardCount(release), 0);
 
   const first = await repository.loadLesson(release, release.lessons[0]);
-  assert.equal(first.shard.id, 1);
+  assert.equal(first.shard.id, release.lessons[0].shardId);
   assert.equal(repository.loadedShardCount(release), 1);
 
-  const seventeenth = await repository.loadLesson(release, release.lessons[16]);
-  assert.equal(seventeenth.shard.id, 2);
+  const differentShardLesson = release.lessons.find((lesson) => lesson.shardId !== first.shard.id);
+  assert.ok(differentShardLesson);
+  const different = await repository.loadLesson(release, differentShardLesson);
+  assert.equal(different.shard.id, differentShardLesson.shardId);
   assert.equal(repository.loadedShardCount(release), 2);
-  await repository.loadLesson(release, release.lessons[17]);
+
+  const cachedShardLesson = release.lessons.find((lesson) => lesson.shardId === different.shard.id && lesson.id !== differentShardLesson.id);
+  assert.ok(cachedShardLesson);
+  await repository.loadLesson(release, cachedShardLesson);
   assert.equal(repository.loadedShardCount(release), 2);
 });

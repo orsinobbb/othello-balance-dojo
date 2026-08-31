@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0f3d31">
+  <meta name="description" content="以完整搜尋證明與棋理引導，練習黑白棋中後盤的平衡路線。">
   <title>黑白棋平衡道場｜逐手教學</title>
-  <link rel="stylesheet" href="./styles.css?v=6">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=7">
 </head>
 <body>
   <main class="shell">
@@ -13,72 +16,150 @@
       <div>
         <p class="eyebrow">EXACT E20 → TERMINAL</p>
         <h1>黑白棋平衡道場</h1>
-        <p>黑白雙方都由你操作。每一手先讀空格、縮小候選、找節奏，再用完整搜尋證明。</p>
+        <p>黑白雙方都由你操作；棋理負責理解，完整搜尋負責證明。</p>
       </div>
-      <div class="evidence" id="evidence">資料驗證中…</div>
+      <div>
+        <div class="evidence" id="evidence">資料驗證中…</div>
+        <div class="sync-pill" id="sync-pill">本機模式</div>
+      </div>
     </header>
 
-    <nav class="question-bar" aria-label="題目選擇">
-      <label for="root-select">學習題目</label>
-      <select id="root-select" disabled><option>載入中…</option></select>
-      <span id="question-progress">讀取學習進度…</span>
+    <nav class="app-nav" aria-label="主要功能">
+      <button type="button" data-view-target="today" class="active">今日</button>
+      <button type="button" data-view-target="course">課程</button>
+      <button type="button" data-view-target="practice">練習</button>
+      <button type="button" data-view-target="progress">進度</button>
+      <button type="button" data-view-target="account">帳號</button>
     </nav>
 
-    <section class="workspace" aria-live="polite">
-      <div class="board-panel">
-        <div class="status-row"><span id="turn">載入中</span><span id="position-meta">—</span></div>
-        <div class="board-wrap">
-          <div class="coordinates" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
-          <div id="board" class="board" role="grid" aria-label="黑白棋盤"></div>
-        </div>
-        <p class="board-note">白點是合法落點；候選與精算答案只會在對應教學步驟顯示。</p>
+    <section id="view-today" class="app-view" data-view="today">
+      <div class="section-heading">
+        <div><p class="label">TODAY</p><h2 id="today-greeting">今天練一段真正會記住的棋</h2></div>
+        <button id="start-daily" class="primary-action" type="button">開始今日訓練</button>
       </div>
-
-      <aside class="coach-panel">
-        <div class="score-strip">
-          <div><b id="black-count">0</b><span>黑</span></div>
-          <div><b id="empty-count">20</b><span>空格</span></div>
-          <div><b id="white-count">0</b><span>白</span></div>
-        </div>
-
-        <div class="lesson-progress" aria-label="教學進度">
-          <span data-lesson-step="0">1 讀區域</span>
-          <span data-lesson-step="1">2 篩候選</span>
-          <span data-lesson-step="2">3 找節奏</span>
-          <span data-lesson-step="3">4 精算證明</span>
-        </div>
-
-        <div id="last-result" class="last-result" hidden></div>
-        <section class="coach-card">
-          <p class="label" id="lesson-step">逐手教學</p>
-          <h2 id="lesson-title">準備棋局</h2>
-          <div id="lesson-body" class="lesson-body"><p>正在驗證精算資料。</p></div>
-        </section>
-
-        <div class="actions">
-          <button id="analysis-next" class="primary" type="button">下一步</button>
-          <button id="reveal" type="button">直接看精算結果</button>
-          <button id="retry" class="primary" type="button" hidden>重試這一手</button>
-          <button id="next" class="primary" type="button" hidden>下一題</button>
-          <button id="replay" type="button" hidden>重播棋譜</button>
-        </div>
-
-        <section><p class="label">雙方自弈棋譜</p><ol id="history" class="history"><li>尚未落子</li></ol></section>
-      </aside>
+      <div class="stat-grid">
+        <article><span>今日建議</span><strong id="today-count">—</strong><small>題</small></article>
+        <article><span>到期複習</span><strong id="due-count">—</strong><small>題</small></article>
+        <article><span>目前連續</span><strong id="active-days">—</strong><small>活躍日</small></article>
+      </div>
+      <div id="daily-plan" class="lesson-grid" aria-live="polite"></div>
+      <aside class="method-note"><b>今日節奏：</b>先獨立判斷，再看棋理提示，最後用精算資料核對。答對不只記一次；系統會安排跨盤型複習，確認你真的能轉用。</aside>
     </section>
+
+    <section id="view-course" class="app-view" data-view="course" hidden>
+      <div class="section-heading"><div><p class="label">COURSE</p><h2>中後盤平衡路線課程</h2></div><span id="course-progress">0/100</span></div>
+      <p class="section-intro">引導路線會依序解鎖；自由練習則可選任何題。每題保留所有已證明能維持和局的落點，不把多解題誤判成單一答案。</p>
+      <div id="concept-map" class="concept-grid"></div>
+      <button id="continue-course" class="primary-action" type="button">繼續引導課程</button>
+    </section>
+
+    <section id="view-practice" class="app-view" data-view="practice" hidden>
+      <nav class="question-bar" aria-label="題目選擇">
+        <label for="root-select">自由選題</label>
+        <select id="root-select" disabled><option>載入中…</option></select>
+        <span id="question-progress">讀取學習進度…</span>
+      </nav>
+
+      <section class="workspace" aria-live="polite">
+        <div class="board-panel">
+          <div class="status-row"><span id="turn">載入中</span><span id="position-meta">—</span></div>
+          <div class="board-wrap">
+            <div class="coordinates" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
+            <div id="board" class="board" role="grid" aria-label="黑白棋盤"></div>
+          </div>
+          <p class="board-note">白點是合法落點；候選與精算答案只在對應教學步驟顯示。</p>
+        </div>
+
+        <aside class="coach-panel">
+          <div class="score-strip">
+            <div><b id="black-count">0</b><span>黑</span></div>
+            <div><b id="empty-count">20</b><span>空格</span></div>
+            <div><b id="white-count">0</b><span>白</span></div>
+          </div>
+          <div class="lesson-progress" aria-label="教學進度">
+            <span data-lesson-step="0">1 讀區域</span>
+            <span data-lesson-step="1">2 篩候選</span>
+            <span data-lesson-step="2">3 找節奏</span>
+            <span data-lesson-step="3">4 精算證明</span>
+          </div>
+          <div id="last-result" class="last-result" hidden></div>
+          <section class="coach-card">
+            <p class="label" id="lesson-step">逐手教學</p>
+            <h2 id="lesson-title">準備棋局</h2>
+            <div id="lesson-body" class="lesson-body"><p>正在驗證精算資料。</p></div>
+          </section>
+          <div class="actions">
+            <button id="analysis-next" class="primary" type="button">下一步</button>
+            <button id="reveal" type="button">直接看精算結果</button>
+            <button id="retry" class="primary" type="button" hidden>重試這一手</button>
+            <button id="next" class="primary" type="button" hidden>下一題</button>
+            <button id="replay" type="button" hidden>重播棋譜</button>
+          </div>
+          <section><p class="label">雙方自弈棋譜</p><ol id="history" class="history"><li>尚未落子</li></ol></section>
+        </aside>
+      </section>
+    </section>
+
+    <section id="view-progress" class="app-view" data-view="progress" hidden>
+      <div class="section-heading"><div><p class="label">PROGRESS</p><h2>學習歷程</h2></div></div>
+      <div class="stat-grid">
+        <article><span>完成題目</span><strong id="stat-completed">0</strong><small>題</small></article>
+        <article><span>有效判斷</span><strong id="stat-accuracy">—</strong><small>正確率</small></article>
+        <article><span>獨立思考</span><strong id="stat-independent">0</strong><small>次</small></article>
+      </div>
+      <h3>棋理熟練度</h3>
+      <div id="mastery-list" class="mastery-list"><p>完成練習後會出現可重建的熟練度證據。</p></div>
+      <h3>最近活動</h3>
+      <div id="recent-activity" class="activity-list"><p>尚無紀錄。</p></div>
+    </section>
+
+    <section id="view-account" class="app-view" data-view="account" hidden>
+      <div class="section-heading"><div><p class="label">ACCOUNT & DATA</p><h2>帳號、同步與資料主權</h2></div></div>
+      <div class="account-grid">
+        <section class="settings-card">
+          <h3>本機學習者</h3>
+          <label>顯示名稱<input id="profile-name" maxlength="40" autocomplete="nickname"></label>
+          <label>經驗<select id="profile-experience"><option value="new">剛開始學</option><option value="regular">有對弈經驗</option><option value="competitive">競技／研究</option></select></label>
+          <label>每日時間<select id="profile-minutes"><option value="5">5 分鐘</option><option value="10">10 分鐘</option><option value="15">15 分鐘</option><option value="20">20 分鐘</option></select></label>
+          <button id="save-profile" class="primary-action" type="button">儲存設定</button>
+        </section>
+        <section class="settings-card">
+          <h3 id="identity-title">目前使用本機模式</h3>
+          <p id="identity-detail">不登入也能完整練習，資料只留在這個瀏覽器。</p>
+          <button id="auth-action" type="button">Google 登入尚未設定</button>
+          <button id="sync-action" type="button">立即同步</button>
+          <p id="sync-status" class="muted">尚無同步作業。</p>
+        </section>
+        <section class="settings-card">
+          <h3>你的資料</h3>
+          <p>精算棋譜是唯讀教材；學習事件屬於你。你可以匯出 JSON，並在瀏覽器設定中刪除本站資料。</p>
+          <button id="export-data" type="button">匯出我的學習資料</button>
+          <a href="./PRIVACY.md" target="_blank" rel="noopener">閱讀隱私與資料說明</a>
+        </section>
+      </div>
+    </section>
+
     <p id="fatal" class="fatal" hidden></p>
   </main>
+
+  <dialog id="onboarding-dialog" class="failure-dialog onboarding-dialog" aria-labelledby="onboarding-title">
+    <p class="dialog-kicker">歡迎來到平衡道場</p>
+    <h2 id="onboarding-title">先決定你的練習節奏</h2>
+    <p>不用登入。系統只用這些設定安排每日題目，之後可在帳號頁修改。</p>
+    <label>你的經驗<select id="onboarding-experience"><option value="new">剛開始學</option><option value="regular">有對弈經驗</option><option value="competitive">競技／研究</option></select></label>
+    <label>每天練習<select id="onboarding-minutes"><option value="5">5 分鐘</option><option value="10" selected>10 分鐘</option><option value="15">15 分鐘</option><option value="20">20 分鐘</option></select></label>
+    <div class="dialog-actions"><button id="onboarding-start" class="primary" type="button">開始學習</button></div>
+  </dialog>
 
   <dialog id="failure-dialog" class="failure-dialog" aria-labelledby="failure-dialog-title" aria-describedby="failure-dialog-body">
     <button id="failure-dialog-close" class="dialog-close" type="button" aria-label="關閉失衡說明">×</button>
     <p class="dialog-kicker">這一步需要再想想</p>
     <h2 id="failure-dialog-title">這條路會失去和局</h2>
     <div id="failure-dialog-body" class="dialog-body"></div>
-    <div class="dialog-actions">
-      <button id="failure-dialog-retry" class="primary" type="button">回到原盤重試</button>
-    </div>
+    <div class="dialog-actions"><button id="failure-dialog-retry" class="primary" type="button">回到原盤重試</button></div>
   </dialog>
 
-  <script type="module" src="./src/app.js?v=7"></script>
+  <script src="./config.js"></script>
+  <script type="module" src="./src/app.js?v=11"></script>
 </body>
 </html>

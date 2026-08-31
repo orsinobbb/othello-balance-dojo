@@ -1,6 +1,13 @@
-const CORE_CACHE = 'balance-dojo-core-v7';
-const DATA_CACHE = 'balance-dojo-data-v2';
-const CORE = ['./', './index.html', './styles.css?v=6', './src/app.js?v=7', './src/core/bitboard.js', './src/core/session.js', './src/core/symmetry.js', './src/core/teaching.js', './src/core/theory-catalog.js', './src/data/native-balanced-dag.js', './src/data/shard-repository.js', './src/storage/curriculum-store.js', './src/storage/progress-store.js', './data/release-manifest.json'];
+const CORE_CACHE = 'balance-dojo-core-v11';
+const DATA_CACHE = 'balance-dojo-data-v3';
+const CORE = [
+  './', './index.html', './styles.css?v=7', './config.js', './manifest.webmanifest', './assets/icon.svg',
+  './src/app.js?v=11', './src/core/bitboard.js', './src/core/session.js', './src/core/symmetry.js',
+  './src/core/teaching.js', './src/core/theory-catalog.js', './src/core/learning-model.js',
+  './src/curriculum/adaptive-selector.js', './src/config/runtime-config.js', './src/auth/auth-provider.js',
+  './src/sync/sync-engine.js', './src/data/native-balanced-dag.js', './src/data/shard-repository.js',
+  './src/storage/curriculum-store.js', './src/storage/progress-store.js', './data/release-manifest.json'
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CORE_CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting()));
